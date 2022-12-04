@@ -4,16 +4,36 @@ import pyudev
 
 #utilitary functions
 
-def get_all_devices_names():
+    #keyboard
+def separate_file_in_lines(file):
+    ret = []
+    file1 = open(file, 'r')
+    Lines = file1.readlines()
+    count = 0
+    for line in Lines:
+        count += 1
+        ret.append("{1}".format(count, line.strip()))
+    return ret
+
+def get_keybord_layouts():
+    return separate_file_in_lines("layouts/base.txt")
+
+def get_keybord_variant_layouts(layout):
+    return separate_file_in_lines("layouts/variants/"+layout+".txt")
+
+    #devices
+
+def get_all_devices_partitions():
     ret = []
     context = pyudev.Context()
     for device in context.list_devices(subsystem='block'):
-        ret.append('{0} ({1})'.format(device['DEVNAME'], device['DEVTYPE']))
+        device_info = ('{0} ({1})'.format(device['DEVNAME'], device['DEVTYPE'])).split()
+        ret.append(device_info[0])
     return ret
 
-        
-
-
+def get_all_devices_avaliable_partitions():
+    all_devices = []
+    all_devices = get_all_devices_partitions()
 
 
 #instalation functions

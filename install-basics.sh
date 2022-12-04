@@ -7,7 +7,7 @@ python3 -m pip install tkinter
 python3 -m pip install psutil
 python3 -m pip install pyudev
 
-sudo apt install software-properties-common
+sudo apt install software-properties-common gparted 
 sudo add-apt-repository universe
 sudo apt update
 sudo apt install -y debootstrap arch-install-scripts
