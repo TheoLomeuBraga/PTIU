@@ -1,7 +1,10 @@
 #!/bin/bash
+
 sudo apt update
 sudo apt install python3-pip
-python3 -m pip install pysimplegui
+sudo apt install python3-tk
+python3 -m pip install tkinter
+
 sudo apt install software-properties-common
 sudo add-apt-repository universe
 sudo apt update
