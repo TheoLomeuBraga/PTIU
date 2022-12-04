@@ -4,6 +4,12 @@ import pyudev
 
 #utilitary functions
 
+    #pakage manager variables
+install_pakages_comand = ""
+
+add_repository_comand = ""
+
+
     #keyboard
 def separate_file_in_lines(file):
     ret = []
