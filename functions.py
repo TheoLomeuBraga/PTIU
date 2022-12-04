@@ -2,9 +2,8 @@ import os
 import psutil
 import pyudev
 
-#utilitary functions
+#variables
 
-    #pakage manager variables
 installation_commands = []
 
 install_pakages_comand = ""
@@ -15,7 +14,7 @@ update_repository_comand = ""
 
 afirmation_key = ""
 
-    #keyboard
+#keyboard
 def separate_file_in_lines(file):
     ret = []
     file1 = open(file, 'r')
@@ -33,7 +32,7 @@ def get_keybord_variant_layouts(layout):
     return separate_file_in_lines("layouts/variants/"+layout+".txt")
 
 
-    #devices
+#devices
 
 def get_all_partitions():
     ret = []
@@ -59,10 +58,39 @@ def get_partition_info(path):
 
 
 
-#instalation functions
+
+
+#instalation comands
 
 def add_installation_command(command):
     installation_commands.append(command)
+
+def begin_installation():
+    print("begin installation")
+    for c in installation_commands:
+        os.system(c)
+
+#pakages
+def add_repository(repository):
+    print("add: ",repository)
+    add_installation_command(add_repository_comand + " " + repository  + " <<< " + afirmation_key)
+    add_installation_command(update_repository_comand)
+
+def install_pakages(pakages):
+    command = install_pakages_comand
+    for p in pakages:
+        command += " " + p
+    print(command)
+    add_installation_command(command + " <<< " + afirmation_key)
+
+#add user
+
+def add_user_acount(name,password):
+    print("creating acount to: ",name)
+    os.system("sudo useradd " + name)
+    os.system("sudo passwd "+ name + " <<< " + password)
+
+
 
 def set_locale(locale):
     print("locale seted to: ",locale)
@@ -76,25 +104,7 @@ def create_base_os(device):
 def install_boot_loaders():
     print("installing boot loaders")
 
-def create_user_acount(name,password):
-    print("creating acount to: ",name)
-    os.system("sudo useradd " + name)
-    os.system("sudo passwd "+ name + " <<< " + password)
 
-def add_repository(repository):
-    print("add: ",repository)
-    add_installation_command(add_repository_comand + " " + repository  + " <<< " + afirmation_key)
-    add_installation_command(update_repository_comand)
 
-def installing_additional_pakages(pakages):
-    print("installing additional pakages")
-    command = install_pakages_comand
-    for p in pakages:
-        command += " " + p
-    print(command)
-    add_installation_command(command + " <<< " + afirmation_key)
 
-def begin_installation():
-    print("begin installation")
-    for c in installation_commands:
-        os.system(c)
+
