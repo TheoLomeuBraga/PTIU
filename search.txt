@@ -1,3 +1,4 @@
 https://gist.github.com/Tookmund/abfc4cbd803915264e0c
 https://www.normalesup.org/~george/comp/live_iso_usb/grub_hybrid.html
 https://wiki.archlinux.org/title/GRUB
+https://unix.stackexchange.com/questions/43976/list-all-valid-kbd-layouts-variants-and-toggle-options-to-use-with-setxkbmap
