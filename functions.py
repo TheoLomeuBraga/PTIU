@@ -5,10 +5,15 @@ import pyudev
 #utilitary functions
 
     #pakage manager variables
+installation_commands = []
+
 install_pakages_comand = ""
 
 add_repository_comand = ""
 
+update_repository_comand = ""
+
+afirmation_key = ""
 
     #keyboard
 def separate_file_in_lines(file):
@@ -27,9 +32,10 @@ def get_keybord_layouts():
 def get_keybord_variant_layouts(layout):
     return separate_file_in_lines("layouts/variants/"+layout+".txt")
 
+
     #devices
 
-def get_all_devices_partitions():
+def get_all_partitions():
     ret = []
     context = pyudev.Context()
     for device in context.list_devices(subsystem='block'):
@@ -37,14 +43,26 @@ def get_all_devices_partitions():
         ret.append(device_info[0])
     return ret
 
-def get_all_devices_avaliable_partitions():
-    all_devices = []
-    all_devices = get_all_devices_partitions()
+def get_all_avaliable_devices():
+    ret = []
+    return ret
+
+
+
+def get_partition_info(path):
+    partition_info = psutil.disk_usage(path)
+    return partition_info
+    #print (hdd.total)
+    #print (hdd.used)
+    #print (hdd.free)
+
+
 
 
 #instalation functions
 
-commands = []
+def add_installation_command(command):
+    installation_commands.append(command)
 
 def set_locale(locale):
     print("locale seted to: ",locale)
@@ -55,16 +73,28 @@ def set_keyboard_layout(layout):
 def create_base_os(device):
     print("creating base")
 
-def create_user_acount(name,password):
-    print("creating acount to: ",name)
-
 def install_boot_loaders():
     print("installing boot loaders")
 
+def create_user_acount(name,password):
+    print("creating acount to: ",name)
+    os.system("sudo useradd " + name)
+    os.system("sudo passwd "+ name + " <<< " + password)
+
+def add_repository(repository):
+    print("add: ",repository)
+    add_installation_command(add_repository_comand + " " + repository  + " <<< " + afirmation_key)
+    add_installation_command(update_repository_comand)
+
 def installing_additional_pakages(pakages):
     print("installing additional pakages")
+    command = install_pakages_comand
+    for p in pakages:
+        command += " " + p
+    print(command)
+    add_installation_command(command + " <<< " + afirmation_key)
 
 def begin_installation():
     print("begin installation")
-    for c in commands:
+    for c in installation_commands:
         os.system(c)
