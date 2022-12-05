@@ -13,15 +13,8 @@ update_repository_comand = ""
 
 afirmation_key = ""
 
-#classes
+#functions
 
-class device_info:
-    def __init__(self):
-        self.size=0
-        self.free=0
-        self.used=0
-
-#keyboard
 def separate_file_in_lines(file):
     ret = []
     file1 = open(file, 'r')
@@ -31,6 +24,28 @@ def separate_file_in_lines(file):
         count += 1
         ret.append("{1}".format(count, line.strip()))
     return ret
+
+def compare_first_chars(n,s1,s2):
+    ret=True
+    if len(s1) < n or len(s2) < n:
+        ret=False
+    else:
+        i=0
+        while i < n:
+            ret = s1[i] == s2[i]
+            i+=1
+
+    return ret
+
+#classes
+
+class device_info:
+    def __init__(self):
+        self.size=0
+        self.free=0
+        self.used=0
+
+#keyboard
 
 def get_keybord_layouts():
     return separate_file_in_lines("layouts/base.txt")
