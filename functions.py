@@ -1,5 +1,6 @@
 import os
 import psutil
+import shutil
 import pyudev
 
 #variables
@@ -13,6 +14,14 @@ add_repository_comand = ""
 update_repository_comand = ""
 
 afirmation_key = ""
+
+#classes
+
+class device_info:
+    def __init__(self):
+        self.size=0
+        self.free=0
+        self.used=0
 
 #keyboard
 def separate_file_in_lines(file):
@@ -48,15 +57,11 @@ def get_all_avaliable_devices():
 
 
 
-def get_partition_info(path):
-    partition_info = psutil.disk_usage(path)
-    return partition_info
-    #print (hdd.total)
-    #print (hdd.used)
-    #print (hdd.free)
 
 
 
+
+    
 
 
 
