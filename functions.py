@@ -1,7 +1,5 @@
 import os
-import psutil
-import shutil
-import pyudev
+import subprocess
 
 #variables
 
@@ -43,17 +41,9 @@ def get_keybord_variant_layouts(layout):
 
 #devices
 
-def get_all_partitions():
-    ret = []
-    context = pyudev.Context()
-    for device in context.list_devices(subsystem='block'):
-        device_info = ('{0} ({1})'.format(device['DEVNAME'], device['DEVTYPE'])).split()
-        ret.append(device_info[0])
-    return ret
-
-def get_all_avaliable_devices():
-    ret = []
-    return ret
+def get_all_avaliable_devices():#em andamento 
+    comand_result=subprocess.check_output(['lsblk', '-l'])
+    #https://codereview.stackexchange.com/questions/152486/parsing-the-lsblk-output
 
 
 
