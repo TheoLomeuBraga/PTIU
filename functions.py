@@ -1,6 +1,33 @@
 import os
 import subprocess
 
+
+
+#classes
+
+class partition_info:
+    def __init__(self):
+        self.size = 0
+        self.mount_point = ""
+    def __init__(self,size,name):
+        self.size = size
+        self.mount_point = name
+
+class device_info:
+    def __init__(self):
+        self.name = ""
+        self.size = 0
+        self.partitions = []
+    def __init__(self,name,size):
+        self.name = name
+        self.size = size
+        self.partitions = []
+    def __init__(self,name,size,partitions):
+        self.name = name
+        self.size = size
+        self.partitions = partitions
+
+
 #variables
 
 installation_commands = []
@@ -12,6 +39,8 @@ add_repository_comand = ""
 update_repository_comand = ""
 
 afirmation_key = ""
+
+devices = []
 
 #functions
 
@@ -37,13 +66,6 @@ def compare_first_chars(n,s1,s2):
 
     return ret
 
-#classes
-
-class device_info:
-    def __init__(self):
-        self.size=0
-        self.free=0
-        self.used=0
 
 #keyboard
 
@@ -56,7 +78,7 @@ def get_keybord_variant_layouts(layout):
 
 #devices
 
-def get_all_avaliable_devices():#em andamento 
+def get_list_all_avaliable_devices():
     comand_result = subprocess.check_output(['lsblk', '-l'])
     result_procesed_lines = comand_result.splitlines()
     result_procesed_lines.pop(0)
@@ -74,7 +96,10 @@ def get_all_avaliable_devices():#em andamento
     return ret
     #https://codereview.stackexchange.com/questions/152486/parsing-the-lsblk-output
 
-
+def get_devices():#em andamento 
+    ret = []
+    devices_str_list = get_list_all_avaliable_devices()
+    return ret
 
 
 
@@ -95,6 +120,7 @@ def begin_installation():
         os.system(c)
 
 #pakages
+
 def add_repository(repository):
     print("add: ",repository)
     add_installation_command(add_repository_comand + " " + repository  + " <<< " + afirmation_key)
