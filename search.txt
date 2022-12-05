@@ -5,3 +5,4 @@ instal bios and uefi https://wiki.archlinux.org/title/GRUB
 get keyboard layouts https://unix.stackexchange.com/questions/43976/list-all-valid-kbd-layouts-variants-and-toggle-options-to-use-with-setxkbmap
 analaize partitions https://stackoverflow.com/questions/50131379/how-to-use-python-to-get-the-device-file-and-partition-number-of-a-certain-path
 pyudev manual https://pyudev.readthedocs.io/en/latest/guide.html
+get free space info https://www.youtube.com/watch?v=SEQqDcivEc4
