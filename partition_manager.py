@@ -11,7 +11,6 @@ class partition_info:
         self.name = name
         self.size = size
         self.mount_point = mount_point
-
     def __init__(self,partition_info_list):
         self.name = partition_info_list[0]
         self.size = partition_info_list[3]
@@ -94,3 +93,9 @@ def get_devices():#em progreso
                 ret[i - 1].partitions.append(p)
 
     return ret
+
+
+
+
+def create_partitions(dev):
+    print("")

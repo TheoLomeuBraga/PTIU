@@ -6,3 +6,4 @@ get keyboard layouts https://unix.stackexchange.com/questions/43976/list-all-val
 analaize partitions https://stackoverflow.com/questions/50131379/how-to-use-python-to-get-the-device-file-and-partition-number-of-a-certain-path
 pyudev manual https://pyudev.readthedocs.io/en/latest/guide.html
 read lsblk https://codereview.stackexchange.com/questions/152486/parsing-the-lsblk-output
+create partitions with one comand https://stackoverflow.com/questions/12917678/fill-a-disk-with-an-ext4-partition-in-a-script
