@@ -71,6 +71,7 @@ class partition_info:
             self.mount_point = ""
     def print_info(self):
         print("name: " + self.name + " " + "size: " + self.size + " " + "mount_point: " + self.mount_point," ",)
+        
     
     
 
@@ -98,6 +99,10 @@ class device_info:
     
     def print_info(self):
         print("name: " + self.name + " " + "size: " + self.size)
+        print("{")
+        for p in self.partitions:
+            p.print_info()
+        print("}")
     
 
 def get_list_all_partitions():
@@ -150,9 +155,13 @@ def split_partitions_bt_devices():#em progreso
     i = 0
     for p in partitions_devices:
         if p.__class__.__name__ == "device_info":
-            print("")
+            i += 1
+            ret.append(p)
         else:
-            print("")
+            if compare_first_chars(2,p.name,"sd"): 
+                len(ret)
+                print(i - 1)
+                ret[i - 1].partitions.append(p)
 
     return ret
 
