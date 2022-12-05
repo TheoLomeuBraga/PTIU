@@ -1,6 +1,18 @@
 #!/bin/bash
 #install basics
-sudo sh install-basics.sh
+sudo apt update
+sudo apt install python3-pip
+sudo apt install python3-tk
+python3 -m pip install tkinter
+python3 -m pip install psutil
+python3 -m pip install pyudev
+
+sudo apt-get install x11-xkb-utils
+sudo apt install software-properties-common gparted 
+sudo add-apt-repository universe
+sudo apt update
+sudo apt install -y debootstrap arch-install-scripts
+
 
 #get layouts
 rm layouts/base.txt

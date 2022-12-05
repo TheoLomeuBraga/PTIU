@@ -1,5 +1,6 @@
 #!/bin/python3
 import functions as f
+import partition_manager as pmansger
 
-for d in f.split_partitions_bt_devices():
+for d in pmansger.get_devices():
     d.print_info()
