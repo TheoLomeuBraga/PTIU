@@ -137,7 +137,7 @@ def get_list_all_partitions():
     for l in devices_str_list_2:
         print(l)
     return ret
-def separe_partitions_bt_devices():
+def split_partitions_bt_devices():#em progreso
     ret = []
     partitions = get_list_all_partitions()
     partitions_devices = []
@@ -150,6 +150,8 @@ def separe_partitions_bt_devices():
     i = 0
     for p in partitions_devices:
         if p.__class__.__name__ == "device_info":
+            print("")
+        else:
             print("")
 
     return ret
