@@ -149,8 +149,8 @@ def separe_partitions_bt_devices():
 
     i = 0
     for p in partitions_devices:
-        #if p.__class__.__name__
-        print("")
+        if p.__class__.__name__ == "device_info":
+            print("")
 
     return ret
 
