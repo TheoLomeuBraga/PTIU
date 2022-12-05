@@ -96,6 +96,8 @@ def get_devices():#em progreso
 
 
 
-
-def create_partitions(dev):
-    print("")
+#https://stackoverflow.com/questions/12917678/fill-a-disk-with-an-ext4-partition-in-a-script
+def mount_partitions(dev):
+    ret = []
+    
+    return ret
