@@ -1,3 +1,5 @@
 #!/bin/python3
 import functions as f
-print(f.compare_first_chars(4,"abcw","abcy"))
+
+for l in f.get_all_avaliable_devices():
+    print(l)

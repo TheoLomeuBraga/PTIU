@@ -57,7 +57,21 @@ def get_keybord_variant_layouts(layout):
 #devices
 
 def get_all_avaliable_devices():#em andamento 
-    comand_result=subprocess.check_output(['lsblk', '-l'])
+    comand_result = subprocess.check_output(['lsblk', '-l'])
+    result_procesed_lines = comand_result.splitlines()
+    result_procesed_lines.pop(0)
+    
+    #remove p''
+    result_procesed_lines_procesed = []
+    for l in result_procesed_lines:
+        result_procesed_lines_procesed.append(str( l, 'utf-8' ))
+    
+    #separate data
+
+    ret = []
+    for l in result_procesed_lines_procesed:
+        ret.append(l.split())
+    return ret
     #https://codereview.stackexchange.com/questions/152486/parsing-the-lsblk-output
 
 
