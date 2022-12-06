@@ -106,7 +106,7 @@ def create_partitions_commands(dev):
 
     ret = []
     ret.append("sudo parted << EOF")
-    
+    ret.append("select /dev/"+dev)
     
 
     ret.append("quit")
