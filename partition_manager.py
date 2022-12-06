@@ -99,7 +99,21 @@ def get_devices():#em progreso
 
 #https://linuxhint.com/linux-parted-command-line-examples/
 def create_partitions_commands(dev):
+    avaliable_space = ""
+    for d in get_devices():
+        if d.name == dev:
+            avaliable_space = d.size
+
+    ret = []
+    ret.append("sudo parted << EOF")
+    
+    
+
+    ret.append("quit")
+    return ret
+
+
+def mount_partition():
     ret = []
     ret.append("")
-
     return ret

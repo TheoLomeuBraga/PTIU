@@ -4,5 +4,5 @@ import partition_manager as pmanager
 import cmd_manager as cm
 
 
-cm.cmds.extend(pmanager.create_partitions_commands("/dev/sdc"))
+cm.add_cmds(pmanager.create_partitions_commands("sdc"))
 cm.begin_installation()
