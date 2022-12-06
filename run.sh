@@ -7,11 +7,10 @@ apt-get install python-parted
 
 python3 -m pip install tkinter
 python3 -m pip install psutil
-python3 -m pip install pyudev
-python3 -m pip install pyparted
 
 
-sudo apt-get install x11-xkb-utils
+sudo apt install parted
+sudo apt-get install x11-xkb-utils 
 sudo apt install software-properties-common gparted 
 sudo add-apt-repository universe
 sudo apt update
