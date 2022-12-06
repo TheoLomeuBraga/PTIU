@@ -1,6 +1,6 @@
 import functions as func
 import subprocess
-
+import parted
 
 class partition_info:
     def __init__(self):
@@ -95,9 +95,11 @@ def get_devices():#em progreso
     return ret
 
 
+#https://gist.github.com/herry13/5931cac426da99820de843477e41e89e
+def create_partitions(dev):#em andamento
+    print(dev)
 
-#https://stackoverflow.com/questions/12917678/fill-a-disk-with-an-ext4-partition-in-a-script
-def mount_partitions(dev):
+def create_partitions_commands(dev):
     ret = []
-    
+    ret.append("sudo python3 mount_partitions.py " + dev)
     return ret

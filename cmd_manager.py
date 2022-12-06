@@ -12,3 +12,4 @@ def begin_installation():
     print("begin installation")
     for c in cmds:
         os.system(c)
+

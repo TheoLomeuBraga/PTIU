@@ -3,9 +3,13 @@
 sudo apt update
 sudo apt install python3-pip
 sudo apt install python3-tk
+apt-get install python-parted
+
 python3 -m pip install tkinter
 python3 -m pip install psutil
 python3 -m pip install pyudev
+python3 -m pip install pyparted
+
 
 sudo apt-get install x11-xkb-utils
 sudo apt install software-properties-common gparted 
@@ -36,4 +40,3 @@ cat /usr/share/i18n/SUPPORTED >> locales/locales.txt
 
 
 #run
-sudo python3 ptiu-gui.py
