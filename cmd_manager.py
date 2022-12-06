@@ -15,4 +15,3 @@ def begin_installation():
     for c in cmds:
         print(c)
         os.system(c)
-

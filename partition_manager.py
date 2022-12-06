@@ -98,18 +98,12 @@ def get_devices():#em progreso
 
 
 #https://linuxhint.com/linux-parted-command-line-examples/
-def create_partitions_commands(dev):
-    avaliable_space = ""
-    for d in get_devices():
-        if d.name == dev:
-            avaliable_space = d.size
-
+def create_partitions_commands(dev,home):
     ret = []
-    ret.append("sudo parted << EOF")
-    ret.append("select /dev/"+dev)
-    
-
-    ret.append("quit")
+    if home == False:
+        ret.append("./create_partition.sh " + dev)
+    else:
+        ret.append("./create_partition.sh " + dev + " " + home)
     return ret
 
 
