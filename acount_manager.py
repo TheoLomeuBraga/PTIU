@@ -8,7 +8,7 @@ class user:
         self.password = password
         self.host_name = host_name
 
-def add_user_acount(name,password,host_name):
+def add_user_acount2(name,password,host_name):
     ret = []
     ret.append("sudo useradd " + name)
     ret.append("sudo passwd " + " <<< " + name + ":" + password)
@@ -17,4 +17,4 @@ def add_user_acount(name,password,host_name):
     return ret
 
 def add_user_acount(usr):
-    return add_user_acount(usr.name,usr.password,usr.host_name)
+    return add_user_acount2(usr.name,usr.password,usr.host_name)

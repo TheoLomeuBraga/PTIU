@@ -10,7 +10,7 @@ import second_base_os as sbos
 dev = "sdb"
 cm.add_cmds(pmanager.create_mount_partitions(dev,0,1024))
 cm.add_cmds(cbos.all())
-cm.add_cmd(am.add_user_acount(am.user("user","password")))
+cm.add_cmd(am.add_user_acount(am.user("user","password","AAAAA")))
 cm.add_cmd(sbos.all("linux-image-generic",dev,["firefox","wicds"]))
 
-cm.begin_installation()
+#cm.begin_installation()
