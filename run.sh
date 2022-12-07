@@ -42,4 +42,3 @@ cat /usr/share/i18n/SUPPORTED >> locales/locales.txt
 
 
 #run
-sudo python3 test.py
