@@ -1,7 +1,7 @@
 def create_base_os():
     ret = []
-    ret.append("sudo debootstrap debian-common /mnt http://archive.ubuntu.com/ubuntu")
-    ret.append("cd /usr/share/debootstrap/scripts && ln -sf gutsy jammy")
+    ret.append("sudo debootstrap focal /mnt https://mirror.leaseweb.com/ubuntu/")
+    ret.append("sudo cd /usr/share/debootstrap/scripts && ln -sf gutsy jammy")
     return ret
 
 def copy_network_configurations():

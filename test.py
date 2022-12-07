@@ -13,4 +13,4 @@ cm.add_cmds(cbos.all())
 cm.add_cmds(am.add_user_acount(am.user("user","password","AAAAA")))
 cm.add_cmds(sbos.all("linux-image-generic",dev,["firefox","wicds"]))
 
-cm.begin_installation()
+#cm.begin_installation()
