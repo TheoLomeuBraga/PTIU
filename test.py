@@ -5,6 +5,6 @@ import cmd_manager as cm
 
 
 
-
-cm.add_cmds(pmanager.create_mount_partitions("sdc",f.get_size_in_mb("30GB"),0))
+#nao testar nesse computador
+cm.add_cmds(pmanager.create_mount_partitions("sdc",0,1024))
 cm.begin_installation()
