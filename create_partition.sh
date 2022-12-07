@@ -18,14 +18,6 @@ end_home_mb=$(($begin_home_mb+$home_size_mb+1))
 if home_size_mb gt 0
 then
 echo "with home partition"
-parted << EOF
-
-
-
-
-
-
-EOF
 
 
 
