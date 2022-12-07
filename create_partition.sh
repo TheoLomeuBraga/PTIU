@@ -49,10 +49,10 @@ sudo parted $device -s mkpart main ext4 ${end_swap_mb}MB 100%
 sudo mkfs -t ext4 ${device}3
 
 
-mount ${device}3 /mnt
+sudo mount ${device}3 /mnt
 
-mkdir –p /mnt/boot/efi
-mount ${device}1 /mnt/boot/efi
+sudo mkdir –p /mnt/boot/efi
+sudo mount ${device}1 /mnt/boot/efi
 
 
 
