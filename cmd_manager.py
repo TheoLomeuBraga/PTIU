@@ -7,7 +7,7 @@ def add_cmd(cmd):
 
 def add_cmds(commands):
     global cmds
-    cmds += commands
+    cmds = cmds + commands 
 
 def begin_installation():
     print("begin installation")

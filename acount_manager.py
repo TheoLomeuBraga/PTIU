@@ -13,7 +13,6 @@ def add_user_acount2(name,password,host_name):
     ret.append("sudo useradd " + name)
     ret.append("sudo passwd " + " <<< " + name + ":" + password)
     ret.append("echo " + host_name + " > /etc/hostname")
-    
     return ret
 
 def add_user_acount(usr):
