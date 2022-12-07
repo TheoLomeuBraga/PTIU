@@ -1,6 +1,6 @@
 def create_base_os():
     ret = []
-    ret.append("sudo debootstrap RELEASE /mnt http://archive.ubuntu.com/ubuntu")
+    ret.append("sudo debootstrap debian-common /mnt http://archive.ubuntu.com/ubuntu")
     ret.append("cd /usr/share/debootstrap/scripts && ln -sf gutsy jammy")
     return ret
 

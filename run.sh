@@ -17,7 +17,7 @@ sudo apt install parted
 sudo apt-get install x11-xkb-utils 
 sudo apt install software-properties-common gparted 
 apt-get install ubuntu-archive-keyring
-sudo apt install -y debootstrap arch-install-scripts
+sudo apt install -y debootstrap schroot arch-install-scripts
 
 
 #get layouts
