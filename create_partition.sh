@@ -27,13 +27,20 @@ sudo mkfs.vfat -F 32 ${device}1
 sudo parted $device -s mkpart swap linux-swap ${begin_swap_mb}MB ${end_swap_mb}MB
 sudo mkswap ${device}2
 
-sudo parted $device -s mkpart swap linux-swap ${begin_home_mb}MB ${end_home_mb}MB
+sudo parted $device -s mkpart home linux-swap ${begin_home_mb}MB ${end_home_mb}MB
 sudo mkfs -t ext4 ${device}3
 
-sudo parted $device -s mkpart home ext4 ${end_home_mb}MB 100%
+sudo parted $device -s mkpart main ext4 ${end_home_mb}MB 100%
 sudo mkfs -t ext4 ${device}4
 
+sudo mount ${device}4 /mnt
 
+sudo mkdir /mnt/boot
+sudo mkdir /mnt/boot/efi
+sudo mount ${device}1 /mnt/boot/efi
+
+sudo mkdir /mnt/home
+sudo mount ${device}3 /mnt/home
 
 else
 echo "no home partition"
@@ -51,7 +58,8 @@ sudo mkfs -t ext4 ${device}3
 
 sudo mount ${device}3 /mnt
 
-sudo mkdir –p /mnt/boot/efi
+sudo mkdir /mnt/boot
+sudo mkdir /mnt/boot/efi
 sudo mount ${device}1 /mnt/boot/efi
 
 
