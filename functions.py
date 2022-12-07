@@ -1,3 +1,6 @@
+import re
+
+
 def separate_file_in_lines(file):
     ret = []
     file1 = open(file, 'r')
@@ -20,7 +23,19 @@ def compare_first_chars(n,s1,s2):
 
     return ret
 
+def separate_numbers_text(text):
+    return [int(''.join(filter(str.isdigit, text)) or None), ''.join(filter(str.isalpha, text)) or None]
 
+def get_size_in_mb(size):
+    ret = 0
+    s_n = separate_numbers_text(size)
+    print(s_n)
+    if s_n[1] == "GB":
+        ret = s_n[0] * 1024
+    elif s_n[1] == "MB":
+        ret = s_n[0]
+    return ret
+    
 
 
 

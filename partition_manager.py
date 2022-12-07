@@ -98,9 +98,9 @@ def get_devices():#em progreso
 
 
 #https://linuxhint.com/linux-parted-command-line-examples/
-def create_partitions_commands(dev,home_size_gib):
+def create_mount_partitions(dev,dev_space_mb,home_size_mb):
     ret = []
-    ret.append("./create_partition.sh " + dev + " " + str(home_size_gib))
+    ret.append("sudo ./create_partition.sh " + dev + " " + str(dev_space_mb)  + " " + str(home_size_mb))
     return ret
 
 
