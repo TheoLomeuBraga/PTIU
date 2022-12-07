@@ -31,40 +31,10 @@ EOF
 
 else
 echo "no home partition"
-parted << EOF
-select $device
-using $device
-
-mklabel
-gpt
-y
-
-mkpart
-EFI 
-fat32
-${begin_bios_mb}MB
-${end_bios_mb}MB
-Ignore
-
-mkpart 
-swap
-linux-swap
-${begin_swap_mb}MB
-${end_swap_mb}MB
-y
-Ignore
-
-mkpart 
-main
-ext4
-${end_swap_mb}MB
-100%
-y
-Ignore
-
-
-print
-EOF
+sudo parted $device -s mklabel gpt
+sudo parted $device -s mkpart EFI fat32 ${begin_bios_mb}MB ${end_bios_mb}MB
+sudo parted $device -s mkpart swap linux-swap ${begin_swap_mb}MB ${end_swap_mb}MB
+sudo parted $device -s mkpart main ext4 ${end_swap_mb}MB 100%
 
 sudo mkfs.vfat -F 32 ${device}1
 
