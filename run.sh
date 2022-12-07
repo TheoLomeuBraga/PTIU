@@ -1,6 +1,10 @@
 #!/bin/bash
 #install basics
+
+add-apt-repository http://deb.debian.org/debian/ buster main
+sudo add-apt-repository universe
 sudo apt update
+
 sudo apt install python3-pip
 sudo apt install python3-tk
 apt-get install python-parted
@@ -12,8 +16,7 @@ python3 -m pip install psutil
 sudo apt install parted
 sudo apt-get install x11-xkb-utils 
 sudo apt install software-properties-common gparted 
-sudo add-apt-repository universe
-sudo apt update
+apt-get install ubuntu-archive-keyring
 sudo apt install -y debootstrap arch-install-scripts
 
 
