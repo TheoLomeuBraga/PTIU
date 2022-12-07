@@ -30,7 +30,7 @@ sudo mkswap ${device}2
 sudo parted $device -s mkpart swap linux-swap ${begin_home_mb}MB ${end_home_mb}MB
 sudo mkfs -t ext4 ${device}3
 
-sudo parted $device -s mkpart main ext4 ${end_home_mb}MB 100%
+sudo parted $device -s mkpart home ext4 ${end_home_mb}MB 100%
 sudo mkfs -t ext4 ${device}4
 
 
