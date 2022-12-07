@@ -33,6 +33,8 @@ sudo mkfs -t ext4 ${device}3
 sudo parted $device -s mkpart main ext4 ${end_home_mb}MB 100%
 sudo mkfs -t ext4 ${device}4
 
+
+
 else
 echo "no home partition"
 sudo parted $device -s mklabel gpt
@@ -47,7 +49,10 @@ sudo parted $device -s mkpart main ext4 ${end_swap_mb}MB 100%
 sudo mkfs -t ext4 ${device}3
 
 
+mount ${device}3 /mnt
 
+mkdir –p /mnt/boot/efi
+mount ${device}1 /mnt/boot/efi
 
 
 
