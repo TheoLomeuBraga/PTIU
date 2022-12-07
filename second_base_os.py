@@ -15,6 +15,7 @@ def install_boot_loader(dev):
     ret.append("apt-get install grub-pc")
     ret.append("apt-get install grub-efi")
     ret.append("grub-install /dev/"+dev)
+    ret.append("grub-install /dev/"+dev)
     ret.append("update-grub")
     return ret
 
