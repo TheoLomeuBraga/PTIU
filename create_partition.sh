@@ -15,7 +15,7 @@ end_swap_mb=$(($begin_swap_mb+$swap_size_mb+1))
 begin_home_mb=$(($end_swap_mb+1))
 end_home_mb=$(($begin_home_mb+$home_size_mb+1))
 
-if home_size_mb gt 0
+if home_size_mb -gt 0
 then
 echo "with home partition"
 
@@ -54,7 +54,6 @@ sudo mkswap ${device}2
 
 sudo parted $device -s mkpart main ext4 ${end_swap_mb}MB 100%
 sudo mkfs -t ext4 ${device}3
-
 
 sudo mount ${device}3 /mnt
 
