@@ -12,6 +12,13 @@ def add_cmds(commands):
 def begin_installation():
     print("begin installation")
     global cmds
+    if os.path.isfile("command.sh"):
+        os.remove("command.sh")
+     
+    f = open("command.sh", "w")
     for c in cmds:
-        print(c)
-        os.system(c)
+        f.write(c+"\n")
+    f.close()
+
+def install():
+    os.system("sudo sh command.sh")

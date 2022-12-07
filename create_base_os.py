@@ -18,11 +18,11 @@ def edit():
 def mount_file_system_and_chroot():
     ret = []
     ret.append("sudo apt-get install arch-install-scripts")
-    ret.append("sudo arch-chroot /mnt")
+    ret.append("sudo arch-chroot /mnt << EOF")
     ret.append("sudo mount --bind /dev /mnt/dev")
     ret.append("sudo mount -t proc none /mnt/proc")
     ret.append("sudo mount -t sysfs sys /mnt/sys")
-    ret.append("sudo chroot /mnt /bin/bash")
+    ret.append("sudo chroot /mnt /bin/bash  << EOF")
     return ret
 
 
