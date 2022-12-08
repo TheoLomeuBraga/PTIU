@@ -3,3 +3,5 @@
 /layouts/variants
 /device
 /command.sh
+/resolv.conf
+/sources.list

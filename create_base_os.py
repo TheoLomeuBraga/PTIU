@@ -1,7 +1,8 @@
 import os
+import shutil
 import repositorys as rp
 
-def add_repositorys():
+def create_repositorys_file():
     #/mnt/etc/apt/sources.list
     if os.path.isfile("sources.list"):
         os.remove("sources.list")
@@ -13,6 +14,9 @@ def add_repositorys():
         f.write(p+"\n")
     f.close()
 
+def create_network_file():
+    shutil.copyfile("/etc/resolv.conf","resolv.conf")
+
 def create_base_os():
     ret = []
     debootstrap_command = "sudo debootstrap --arch=amd64 --variant=minbase focal /mnt https://mirror.leaseweb.com/ubuntu/"
@@ -20,11 +24,13 @@ def create_base_os():
     ret.append("sudo cd /usr/share/debootstrap/scripts && ln -sf gutsy jammy")
 
     
-    ret.append("sudo yes | sudo cp -rf /etc/resolv.conf /mnt/etc/")
+
+    create_network_file()
+    ret.append("sudo yes | sudo cp -rf ./resolv.conf /mnt/etc/")
 
     
 
-    add_repositorys()
+    create_repositorys_file()
     ret.append("sudo yes | sudo cp -rf ./sources.list /mnt/etc/apt/")
 
     
