@@ -29,5 +29,5 @@ def install_pakages():
     return ret
 
 def all(dev):
-    ret = install_localization() + install_boot_loader(dev) + install_pakages()
+    ret = conect_to_internet() + install_pakages() + install_localization() + install_boot_loader(dev)
     return ret
