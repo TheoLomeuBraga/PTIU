@@ -1,9 +1,7 @@
 import pakages as pk
+import repositorys as rp
 
-def conect_to_internet():
-    ret = []
-    #ret.append('echo "nameserver 8.8.8.8" > /etc/resolv.conf')
-    return ret
+
 
 def install_localization():
     ret = []
@@ -24,6 +22,7 @@ def install_boot_loader(dev):
 
 def install_pakages():
     ret = []
+    
     for pak in pk.base_pakages:
         ret.append("sudo apt install "+pak)
         ret.append("y")
@@ -32,5 +31,5 @@ def install_pakages():
     return ret
 
 def all(dev):
-    ret = conect_to_internet() + install_pakages() + install_localization() + install_boot_loader(dev)
+    ret = install_pakages() + install_localization() + install_boot_loader(dev)
     return ret

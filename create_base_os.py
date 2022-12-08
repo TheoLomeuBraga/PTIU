@@ -1,19 +1,37 @@
+import os
+import repositorys as rp
 
+def add_repositorys():
+    #/mnt/etc/apt/sources.list
+    if os.path.isfile("sources.list"):
+        os.remove("sources.list")
+     
+    f = open("sources.list", "w")
+    for p in rp.base_repositorys:
+        f.write(p+"\n")
+    for p in rp.extra_repositorys:
+        f.write(p+"\n")
+    f.close()
 
 def create_base_os():
     ret = []
-    debootstrap_command = "sudo debootstrap focal /mnt https://mirror.leaseweb.com/ubuntu/"
+    debootstrap_command = "sudo debootstrap --arch=amd64 --variant=minbase focal /mnt https://mirror.leaseweb.com/ubuntu/"
     ret.append(debootstrap_command)
     ret.append("sudo cd /usr/share/debootstrap/scripts && ln -sf gutsy jammy")
 
-    
-    ret.append("sudo cp /etc/resolv.conf /mnt/etc/resolv.conf")
+    ret.append("sudo mv chroot/etc/resolv.conf{,.bak}")
+    ret.append("sudo yes | sudo cp -rf /etc/resolv.conf /mnt/etc/")
+
+    ret.append("sudo yes | sudo cp -rf sources.list /mnt/etc/apt/")
+
+    add_repositorys()
     return ret
 
 
+    
+
 def edit():
     ret = []
-    ret.append("sudo apt-get install arch-install-scripts")
     ret.append("genfstab /mnt > /mnt/etc/fstab")
     return ret
 
@@ -23,6 +41,7 @@ def mount_file_system_and_chroot():
     ret.append("sudo mount -t proc none /mnt/proc")
     ret.append("sudo mount -t sysfs sys /mnt/sys")
     ret.append("sudo chroot /mnt << EOF")
+    ret.append("sudo apt-get update")
     return ret
 
 
@@ -30,5 +49,5 @@ def mount_file_system_and_chroot():
 
 
 def all():
-    ret = create_base_os() + edit() + mount_file_system_and_chroot()
+    ret = create_base_os() + edit() + add_repositorys() + mount_file_system_and_chroot()
     return ret
