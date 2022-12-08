@@ -19,8 +19,10 @@ def create_base_os():
     ret.append(debootstrap_command)
     ret.append("sudo cd /usr/share/debootstrap/scripts && ln -sf gutsy jammy")
 
-    ret.append("sudo mv chroot/etc/resolv.conf{,.bak}")
+    
     ret.append("sudo yes | sudo cp -rf /etc/resolv.conf /mnt/etc/")
+
+    
 
     add_repositorys()
     ret.append("sudo yes | sudo cp -rf ./sources.list /mnt/etc/apt/")
