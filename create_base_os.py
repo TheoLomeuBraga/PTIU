@@ -20,8 +20,6 @@ def mount_file_system_and_chroot():
     ret.append("sudo mount -t proc none /mnt/proc")
     ret.append("sudo mount -t sysfs sys /mnt/sys")
     ret.append("sudo arch-chroot /mnt << EOF")
-    #ret.append("exit")
-    #ret.append("EOF")
     #ret.append("sudo chroot /mnt /bin/bash  << EOF")
     return ret
 
