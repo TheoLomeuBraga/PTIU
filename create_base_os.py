@@ -22,9 +22,10 @@ def create_base_os():
     ret.append("sudo mv chroot/etc/resolv.conf{,.bak}")
     ret.append("sudo yes | sudo cp -rf /etc/resolv.conf /mnt/etc/")
 
-    ret.append("sudo yes | sudo cp -rf sources.list /mnt/etc/apt/")
-
     add_repositorys()
+    ret.append("sudo yes | sudo cp -rf ./sources.list /mnt/etc/apt/")
+
+    
     return ret
 
 
@@ -49,5 +50,5 @@ def mount_file_system_and_chroot():
 
 
 def all():
-    ret = create_base_os() + edit() + add_repositorys() + mount_file_system_and_chroot()
+    ret = create_base_os() + edit() + mount_file_system_and_chroot()
     return ret
