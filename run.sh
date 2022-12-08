@@ -16,8 +16,9 @@ python3 -m pip install psutil
 sudo apt install parted
 sudo apt-get install x11-xkb-utils 
 sudo apt install software-properties-common gparted 
-apt-get install ubuntu-archive-keyring
+sudo apt-get install ubuntu-archive-keyring
 sudo apt install -y debootstrap schroot arch-install-scripts
+sudo apt-get install arch-install-scripts
 
 
 #get layouts

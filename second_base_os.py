@@ -1,3 +1,5 @@
+import pakages as pk
+
 def install_localization():
     ret = []
     ret.append("dpkg-reconfigure tzdata")
@@ -13,8 +15,14 @@ def install_boot_loader(dev):
     ret.append("update-grub")
     return ret
 
-
+def install_pakages():
+    ret = []
+    for pak in pk.base_pakages:
+        ret.append("sudo apt install ",pak)
+    for pak in pk.extra_pakages:
+        ret.append("sudo apt install ",pak)
+    return ret
 
 def all(dev):
-    ret = install_localization() + install_boot_loader(dev) 
+    ret = install_localization() + install_boot_loader(dev) + install_pakages()
     return ret
