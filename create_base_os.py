@@ -1,13 +1,11 @@
-def create_base_os():
+def create_base_os(extra_pakages):
     ret = []
+    base_pakages = ["grub-pc","grub-efi","linux-image-generic","locales"]
+    pakages = extra_pakages + base_pakages
     ret.append("sudo debootstrap focal /mnt https://mirror.leaseweb.com/ubuntu/")
     ret.append("sudo cd /usr/share/debootstrap/scripts && ln -sf gutsy jammy")
     return ret
 
-def copy_network_configurations():
-    ret = []
-    ret.append("sudo cp /etc/network/interfaces /mnt/etc/network/interfaces")
-    return ret
 
 def edit():
     ret = []
@@ -22,6 +20,8 @@ def mount_file_system_and_chroot():
     ret.append("sudo mount --bind /dev /mnt/dev")
     ret.append("sudo mount -t proc none /mnt/proc")
     ret.append("sudo mount -t sysfs sys /mnt/sys")
+    ret.append("exit")
+    ret.append("EOF")
     ret.append("sudo chroot /mnt /bin/bash  << EOF")
     return ret
 
@@ -29,6 +29,6 @@ def mount_file_system_and_chroot():
 
 
 
-def all():
-    ret = create_base_os() + copy_network_configurations() + edit() + mount_file_system_and_chroot()
+def all(extra_pakages):
+    ret = create_base_os(extra_pakages) + edit() + mount_file_system_and_chroot()
     return ret
