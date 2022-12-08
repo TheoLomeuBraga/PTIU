@@ -5,7 +5,8 @@ def create_base_os():
     debootstrap_command = "sudo debootstrap focal /mnt https://mirror.leaseweb.com/ubuntu/"
     ret.append(debootstrap_command)
     ret.append("sudo cd /usr/share/debootstrap/scripts && ln -sf gutsy jammy")
-    ret.append("linux cat /etc/resolv.conf > mnt/etc/resolv.conf")
+    ret.append("sudo touch /mnt/etc/resolv.conf")
+    ret.append("sudo cat /etc/resolv.conf > /mnt/etc/resolv.conf")
     return ret
 
 
