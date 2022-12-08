@@ -1,6 +1,6 @@
 def create_base_os(extra_pakages):
     ret = []
-    base_pakages = ["grub-pc","grub-efi","linux-image-generic","locales"]
+    base_pakages = ["grub","grub-pc","grub-efi","linux-image-generic","locales"]
     pakages = extra_pakages + base_pakages
     debootstrap_command = "sudo debootstrap --include="
     for p in base_pakages:
