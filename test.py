@@ -9,7 +9,7 @@ import second_base_os as sbos
 #nao testar nesse computador
 dev = "sdb"
 cm.add_cmds(pmanager.create_mount_partitions(dev,0,1024))
-cm.add_cmds(cbos.all(["wicd","icewm","firefox"]))
+cm.add_cmds(cbos.all(["wicd","icewm","firefox","slim","xorg"]))
 cm.add_cmds(am.add_user_acount(am.user("user","password","AAAAA")))
 cm.add_cmds(sbos.all(dev))
 

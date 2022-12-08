@@ -2,7 +2,10 @@ def create_base_os(extra_pakages):
     ret = []
     base_pakages = ["grub-pc","grub-efi","linux-image-generic","locales"]
     pakages = extra_pakages + base_pakages
-    ret.append("sudo debootstrap focal /mnt https://mirror.leaseweb.com/ubuntu/")
+    debootstrap_command = "sudo debootstrap focal /mnt https://mirror.leaseweb.com/ubuntu/ --include="
+    for p in base_pakages:
+        debootstrap_command += p + ","
+    ret.append(debootstrap_command)
     ret.append("sudo cd /usr/share/debootstrap/scripts && ln -sf gutsy jammy")
     return ret
 
