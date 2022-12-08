@@ -1,5 +1,7 @@
 how install custom distro https://gist.github.com/Tookmund/abfc4cbd803915264e0c 
+how install custom distro https://www.reddit.com/r/linux/comments/fnimaz/installed_ubuntu_the_arch_way_things_to_do_in/
 how install custom distro  https://wiki.archlinux.org/title/installation_guide
+
 instal bios and uefi https://www.normalesup.org/~george/comp/live_iso_usb/grub_hybrid.html
 instal bios and uefi https://wiki.archlinux.org/title/GRUB
 get keyboard layouts https://unix.stackexchange.com/questions/43976/list-all-valid-kbd-layouts-variants-and-toggle-options-to-use-with-setxkbmap

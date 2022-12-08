@@ -15,6 +15,11 @@ def install_boot_loader(dev):
     ret.append("update-grub")
     return ret
 
+def conect_to_internet():
+    ret = []
+    ret.append('echo "nameserver 8.8.8.8" > /etc/resolv.conf')
+    return ret
+
 def install_pakages():
     ret = []
     for pak in pk.base_pakages:
