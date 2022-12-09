@@ -38,7 +38,7 @@ def install_pakages():
         ret.append("apt -y install "+pak)
     for pak in pk.extra_pakages:
         ret.append("apt -y install "+pak)
-    ret.append("apt upgrade")
+    #ret.append("apt upgrade")
     return ret
 
 def all(dev):
