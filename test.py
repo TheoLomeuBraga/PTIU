@@ -11,7 +11,7 @@ import os
 if os.path.isfile("commands.sh"):
         os.remove("commands.sh")
 
-pk.add_pakages(["wicd","icewm","firefox","slim","xorg"])
+#pk.add_pakages(["wicd","icewm","firefox","slim","xorg"])
 
 #nao testar nesse computador
 dev = "sdb"
