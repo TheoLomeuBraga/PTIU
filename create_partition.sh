@@ -36,7 +36,7 @@ sudo mkfs -t ext4 ${device}4
 sudo mount ${device}4 /mnt
 
 sudo mkdir /mnt/boot
-sudo mkdir /mnt/boot/efi
+sudo mkdir /mnt/boot/EFI
 sudo mount ${device}1 /mnt/boot/efi
 
 sudo mkdir /mnt/home
@@ -58,7 +58,7 @@ sudo mkfs -t ext4 ${device}3
 sudo mount ${device}3 /mnt
 
 sudo mkdir /mnt/boot
-sudo mkdir /mnt/boot/efi
+sudo mkdir /mnt/boot/EFI
 sudo mount ${device}1 /mnt/boot/efi
 
 

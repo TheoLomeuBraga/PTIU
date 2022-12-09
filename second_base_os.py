@@ -5,8 +5,8 @@ import repositorys as rp
 
 def install_localization():#uncoment
     ret = []
-    #ret.append("dpkg-reconfigure tzdata")
-    #ret.append("dpkg-reconfigure locales")
+    ret.append("dpkg-reconfigure tzdata")
+    ret.append("dpkg-reconfigure locales")
     return ret
 
 
@@ -18,8 +18,13 @@ def install_boot_loader(dev):
 
 
     ret.append("grub-install /dev/"+dev)
-    #ret.append("grub-install --target=x86_64-efi /dev/"+dev+" --force")
-    ret.append("grub-install --target=x86_64-efi --efi-directory=/boot/efi /dev/"+dev+" --force")
+
+    #tests install efi
+    ret.append("grub-install --target=x86_64-efi /dev/"+dev+" --force")
+    ret.append("grub-install --target=x86_64-efi --efi-directory=/boot /dev/"+dev+" --force")
+    ret.append("grub-install --target=x86_64-efi --efi-directory=/boot/EFI /dev/"+dev+" --force")
+
+    #install bios
     ret.append("grub-install --target=i386-pc /dev/"+dev+" --force")
     ret.append("update-grub")
     return ret
@@ -33,6 +38,7 @@ def install_pakages():
         ret.append("apt -y install "+pak)
     for pak in pk.extra_pakages:
         ret.append("apt -y install "+pak)
+    ret.append("apt upgrade")
     return ret
 
 def all(dev):
