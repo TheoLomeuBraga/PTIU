@@ -59,7 +59,7 @@ sudo mount ${device}3 /mnt
 
 sudo mkdir /mnt/boot
 sudo mkdir /mnt/boot/EFI
-sudo mount ${device}1 /mnt/boot/efi
+sudo mount ${device}1 /mnt/boot/EFI
 
 
 

@@ -11,7 +11,7 @@ import os
 if os.path.isfile("commands.sh"):
         os.remove("commands.sh")
 
-pk.add_pakages(["network-manager","icewm","firefox","sddm","xorg"])
+pk.add_pakages(["network-manager","xfce4","firefox","slim","xorg"])
 
 #nao testar nesse computador
 dev = "sdb"
