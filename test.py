@@ -6,6 +6,10 @@ import create_base_os as cbos
 import acount_manager as am
 import second_base_os as sbos
 import pakages as pk
+import os
+
+if os.path.isfile("commands.sh"):
+        os.remove("commands.sh")
 
 pk.add_pakages(["wicd","icewm","firefox","slim","xorg"])
 
