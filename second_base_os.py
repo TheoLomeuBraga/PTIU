@@ -19,7 +19,7 @@ def install_boot_loader(dev):
 
     ret.append("grub-install /dev/"+dev)
     #ret.append("grub-install --target=x86_64-efi /dev/"+dev+" --force")
-    ret.append("grub-install --target=x86_64-efi --efi-directory=/boot /dev/"+dev+" --force")
+    ret.append("grub-install --target=x86_64-efi --efi-directory=/boot/efi /dev/"+dev+" --force")
     ret.append("grub-install --target=i386-pc /dev/"+dev+" --force")
     ret.append("update-grub")
     return ret
