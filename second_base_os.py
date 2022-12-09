@@ -24,10 +24,10 @@ def install_pakages():
     ret = []
     
     for pak in pk.base_pakages:
-        ret.append("sudo apt install "+pak)
+        ret.append("apt install "+pak)
         ret.append("y")
     for pak in pk.extra_pakages:
-        ret.append("sudo apt install "+pak)
+        ret.append("apt install "+pak)
     return ret
 
 def all(dev):

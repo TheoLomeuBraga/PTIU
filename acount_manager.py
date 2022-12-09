@@ -10,8 +10,8 @@ class user:
 
 def add_user_acount2(name,password,host_name):
     ret = []
-    ret.append("sudo useradd " + name)
-    ret.append("sudo passwd " + " <<< " + name + ":" + password)
+    ret.append("useradd " + name)
+    ret.append('echo "'+name+':'+password+'" | chpasswd')
     ret.append("echo " + host_name + " > /etc/hostname")
     return ret
 
