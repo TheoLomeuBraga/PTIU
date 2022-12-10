@@ -19,7 +19,7 @@ cm.add_cmds(pmanager.create_mount_partitions(dev,0,1024))
 cm.add_cmds(cbos.all())
 cm.add_cmds(am.add_user_acount(am.user("user","password","AAAAA")))
 cm.add_cmds(sbos.all(dev))
-cm.add_cmd("dpkg-reconfigure slim")
+#cm.add_cmd("dpkg-reconfigure slim")
 
 
 cm.begin_installation()
