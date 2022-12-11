@@ -17,12 +17,12 @@ if os.path.isfile("commands.sh"):
 
 pk.add_pakages(["network-manager","xfce4","firefox","slim","xorg"])
 
-#nao testar nesse computador
 dev = "sdb"
 cm.add_cmds(pmanager.create_mount_partitions(dev,0,1024))
 cm.add_cmds(cbos.all())
 cm.add_cmds(am.add_user_acount(user))
 cm.add_cmds(sbos.all(dev))
+
 
 cm.add_cmds(bi.change_boot_text("made with PTIU"))
 cm.add_cmd("dpkg-reconfigure slim")
