@@ -22,6 +22,11 @@ def previous():
     window_list[window_id](window)
 
 
+def instructions_window(window):
+    print("")
+window_list.insert(instructions_window)
+
+
 
 
 window.mainloop()
