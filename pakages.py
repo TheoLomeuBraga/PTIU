@@ -1,5 +1,21 @@
-base_pakages = ["locales","grub-efi","grub-pc","grub-common","grub-pc-bin","grub-efi-amd64-bin","linux-image-generic","plymouth-x11","xinput"]
-extra_pakages = []
+kernel = "linux-image-generic"
+
+base_pakages = [
+    "locales",
+    "grub-efi",
+    "grub-pc",
+    "grub-common",
+    "grub-pc-bin",
+    "grub-efi-amd64-bin",
+    kernel,
+    "plymouth-x11",
+    "xinput",
+    "software-properties-common",
+    ]
+
+extra_pakages = [
+    "universe",
+    ]
 
 
 

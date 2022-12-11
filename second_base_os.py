@@ -31,18 +31,25 @@ def install_boot_loader(dev):
 
 
 
-def install_pakages():
+def install_base_pakages():
     ret = []
     ret.append("apt-get update")
     for pak in pk.base_pakages:
         ret.append("apt -y install "+pak)
-    for pak in pk.extra_pakages:
-        ret.append("apt -y install "+pak)
     #ret.append("apt upgrade")
     return ret
 
+def install_extra_pakages():
+    ret = []
+    ret.append("apt -y install software-properties-common")
+    for repo in rp.extra_repositorys:
+        ret.append("add-apt-repository "+repo)
+    ret.append("apt update")
+    for pak in pk.extra_pakages:
+        ret.append("apt -y install "+pak)
+    return ret
 
 
 def all(dev):
-    ret = install_pakages() + install_localization() + install_boot_loader(dev)
+    ret = install_base_pakages() + install_extra_pakages() + install_localization() + install_boot_loader(dev)
     return ret

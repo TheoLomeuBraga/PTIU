@@ -8,6 +8,7 @@ import second_base_os as sbos
 import pakages as pk
 import boot_image as bi
 import final_configs as fc
+import repositorys as rp
 import os
 
 user = am.user("user","password","AAAAA")
@@ -15,7 +16,9 @@ user = am.user("user","password","AAAAA")
 if os.path.isfile("commands.sh"):
         os.remove("commands.sh")
 
-pk.add_pakages(["network-manager","xfce4","firefox","slim","xorg"])
+rp.add_repository("ppa:nilarimogard/webupd8")
+
+pk.add_pakages(["network-manager","xfce4","firefox","mdm","xorg"])
 
 dev = "sdb"
 cm.add_cmds(pmanager.create_mount_partitions(dev,0,1024))
@@ -25,7 +28,7 @@ cm.add_cmds(sbos.all(dev))
 
 
 cm.add_cmds(bi.change_boot_text("made with PTIU"))
-cm.add_cmd("dpkg-reconfigure slim")
+cm.add_cmd("dpkg-reconfigure mdm")
 
 
 

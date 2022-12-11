@@ -14,4 +14,5 @@ def add_repository(repository):
 
 def add_repositorys(repositorys):
     global extra_repositorys
-    extra_repositorys = extra_repositorys + repositorys
+    for r in repositorys:
+        add_repository(r)

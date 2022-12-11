@@ -10,8 +10,6 @@ def create_repositorys_file():
     f = open("sources.list", "w")
     for p in rp.base_repositorys:
         f.write(p+"\n")
-    for p in rp.extra_repositorys:
-        f.write(p+"\n")
     f.close()
 
 def create_network_file():
