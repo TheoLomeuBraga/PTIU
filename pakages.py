@@ -1,4 +1,4 @@
-base_pakages = ["locales","grub-efi","grub-pc","grub-common","grub-pc-bin","grub-efi-amd64-bin","linux-image-generic"]
+base_pakages = ["locales","grub-efi","grub-pc","grub-common","grub-pc-bin","grub-efi-amd64-bin","linux-image-generic","sudo","plymouth-themes","xinput"]
 extra_pakages = []
 
 def add_pakage(pakage):
