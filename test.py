@@ -16,9 +16,9 @@ user = am.user("user","password","AAAAA")
 if os.path.isfile("commands.sh"):
         os.remove("commands.sh")
 
-rp.add_repository("ppa:nilarimogard/webupd8")
+rp.add_repositorys(["ppa:nilarimogard/webupd8","ppa:noobslab/mint"])
 
-pk.add_pakages(["network-manager","xfce4","firefox","mdm","xorg"])
+pk.add_pakages(["network-manager","xfce4","firefox","xorg","mdm","mdm-themes"])
 
 dev = "sdb"
 cm.add_cmds(pmanager.create_mount_partitions(dev,0,1024))
