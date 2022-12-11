@@ -16,9 +16,7 @@ user = am.user("user","password","AAAAA")
 if os.path.isfile("commands.sh"):
         os.remove("commands.sh")
 
-rp.add_repositorys(["ppa:nilarimogard/webupd8","ppa:noobslab/mint"])
-
-pk.add_pakages(["network-manager","xfce4","firefox","xorg","mdm","mdm-themes"])
+pk.add_pakages(["network-manager","xfce4","firefox","xorg","lightdm",])
 
 dev = "sdb"
 cm.add_cmds(pmanager.create_mount_partitions(dev,0,1024))
@@ -28,7 +26,7 @@ cm.add_cmds(sbos.all(dev))
 
 
 cm.add_cmds(bi.change_boot_text("made with PTIU"))
-cm.add_cmd("dpkg-reconfigure mdm")
+#cm.add_cmd("dpkg-reconfigure lightdm")
 
 
 
