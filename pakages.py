@@ -11,6 +11,7 @@ base_pakages = [
     "plymouth-x11",
     "xinput",
     "software-properties-common",
+    "bluez",
     ]
 
 extra_pakages = [

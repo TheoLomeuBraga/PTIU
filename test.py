@@ -6,7 +6,6 @@ import create_base_os as cbos
 import acount_manager as am
 import second_base_os as sbos
 import pakages as pk
-import boot_image as bi
 import final_configs as fc
 import repositorys as rp
 import os

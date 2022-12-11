@@ -43,3 +43,5 @@ cat /usr/share/i18n/SUPPORTED >> locales/locales.txt
 
 
 #run
+cd ptiu-ui
+./ui.py
