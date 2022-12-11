@@ -28,8 +28,3 @@ def add_user_acount2(name,password,host_name):
 def add_user_acount(usr):
     return add_user_acount2(usr.name,usr.password,usr.host_name)
 
-def configure_sudo(root_name):
-    ret = []
-    ret.append("apt -y install sudo")
-    ret.append("usermod -aG sudo "+str(root_name))
-    return ret

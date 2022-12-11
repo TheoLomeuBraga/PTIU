@@ -7,6 +7,7 @@ import acount_manager as am
 import second_base_os as sbos
 import pakages as pk
 import boot_image as bi
+import final_configs as fc
 import os
 
 user = am.user("user","password","AAAAA")
@@ -26,12 +27,9 @@ cm.add_cmds(sbos.all(dev))
 cm.add_cmds(bi.change_boot_text("made with PTIU"))
 cm.add_cmd("dpkg-reconfigure slim")
 
-cm.add_cmd("chsh -s /bin/bash")
-cm.add_cmd("chsh -s /bin/bash "+user.name)
 
 
-
-cm.add_cmds(am.configure_sudo(user.name))
+cm.add_cmds(fc.final_configs(user.name))
 
 
 cm.begin_installation()
