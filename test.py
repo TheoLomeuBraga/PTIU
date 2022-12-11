@@ -9,6 +9,8 @@ import pakages as pk
 import boot_image as bi
 import os
 
+user = am.user("user","password","AAAAA")
+
 if os.path.isfile("commands.sh"):
         os.remove("commands.sh")
 
@@ -18,9 +20,18 @@ pk.add_pakages(["network-manager","xfce4","firefox","slim","xorg"])
 dev = "sdb"
 cm.add_cmds(pmanager.create_mount_partitions(dev,0,1024))
 cm.add_cmds(cbos.all())
-cm.add_cmds(am.add_user_acount(am.user("user","password","AAAAA")))
+cm.add_cmds(am.add_user_acount(user))
 cm.add_cmds(sbos.all(dev))
+
+cm.add_cmds(bi.change_boot_text("made with PTIU"))
 cm.add_cmd("dpkg-reconfigure slim")
+
+cm.add_cmd("chsh -s /bin/bash")
+cm.add_cmd("chsh -s /bin/bash "+user.name)
+
+
+
+cm.add_cmds(am.configure_sudo(user.name))
 
 
 cm.begin_installation()

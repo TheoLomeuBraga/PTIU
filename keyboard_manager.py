@@ -8,6 +8,6 @@ def get_keybord_variant_layouts(layout):
 
 def set_keyboard(layout):
     ret = []
-    ret.append("sudo setxkbmap " + layout)
+    ret.append("setxkbmap " + layout)
     return ret
 

@@ -41,6 +41,8 @@ def install_pakages():
     #ret.append("apt upgrade")
     return ret
 
+
+
 def all(dev):
     ret = install_pakages() + install_localization() + install_boot_loader(dev)
     return ret
