@@ -23,10 +23,17 @@ def previous():
 
 
 def instructions_window(window):
-    print("")
-window_list.insert(instructions_window)
+    global window_id
+    window.title("instructions window")
+    window.geometry("300x500")
+    fm = Frame(window)
+    
+    fm.pack(fill=BOTH, expand=YES)
+window_list.append(instructions_window)
 
 
+
+window_list[0](window)
 
 
 window.mainloop()
