@@ -1,4 +1,5 @@
 import sys
+import os
 sys.path.append('../PTIU')
 from tkinter import *
 
@@ -22,14 +23,24 @@ def previous():
     window_list[window_id](window)
 
 
-def instructions_window(window):
+def welcome_window(window):
     global window_id
-    window.title("instructions window")
-    window.geometry("300x500")
+    window.title("welcome")
+    window.geometry("300x100")
+    window.iconbitmap("@"+os.getcwd()+"/PTIU.xbm")
+    window["background"]="light blue"
+
     fm = Frame(window)
-    
+    fm["background"]="light blue"
+    text = Label(fm, text = "welcome.\n lets mount a ubuntu based distro",background="light blue")
+    text.pack(side=TOP)
+
+    next_button = Button(fm,text="next>>",command=next)
+    next_button["background"]="light blue"
+    next_button.pack(side=BOTTOM)
+
     fm.pack(fill=BOTH, expand=YES)
-window_list.append(instructions_window)
+window_list.append(welcome_window)
 
 
 
