@@ -1,6 +1,7 @@
 import sys
 import os
 sys.path.append('../PTIU')
+from ptiu_lib import *
 from tkinter import *
 
 

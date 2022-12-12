@@ -24,7 +24,6 @@ cm.add_cmds(am.add_user_acount(user))
 cm.add_cmds(sbos.all(dev))
 
 
-cm.add_cmds(bi.change_boot_text("made with PTIU"))
 #cm.add_cmd("dpkg-reconfigure lightdm")
 
 
