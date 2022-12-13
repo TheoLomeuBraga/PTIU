@@ -71,8 +71,9 @@ window_list.append(welcome_window())
 class select_partition_window():
     def __init__(self):
         print("")
-        self.avaliable_device_list = ["sda","sdb","sdc","sda","sdb","sdc","sda","sdb","sdc","sda","sdb","sdc"]
+        self.avaliable_device_list = ["sda","sdb","sdc","sde","sdf"]
         #self.avaliable_device_list = get_avaliable_devices()
+        self.avaliable_device_list += ["","",""]
     def start(self,window):#https://www.pythontutorial.net/tkinter/tkinter-listbox/
         
         window.title("warning")
