@@ -68,12 +68,13 @@ class instalaton_config:
 
         rp.add_repositorys(self.repositorys)
         pk.add_pakages(self.pakages)
+        pk.add_pakages(self.kernel)
         cm.add_cmds(pm.create_mount_partitions(self.deviceice,0,1024))
         cm.add_cmds(cbos.all())
         cm.add_cmds(am.add_user_acount(self.user))
         cm.add_cmds(sbos.all(self.deviceice))
-        cm.add_cmds(fc.final_configs(self.user.name))
         cm.add_cmds(self.final_commands)
+        cm.add_cmds(fc.final_configs(self.user.name))
         cm.begin_installation()
     def install(self):
         cm.install()
