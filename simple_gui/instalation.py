@@ -18,7 +18,7 @@ class instalaton_config:
     def __init__(self):
         self.deviceice = ""
         self.kernel = ""
-        self.user = am.user("user","password","host")
+        self.user = am.user("","","")
         self.repositorys = []
         self.pakages = []
         self.final_commands = []
@@ -47,7 +47,7 @@ class instalaton_config:
             ret.kernel = other.kernel
         
         #user
-        if other.user == am.user("user","password","host"):
+        if other.user == am.user("","",""):
             ret.user = self.user
         else:
             ret.user = other.user
@@ -74,4 +74,4 @@ class instalaton_config:
         cm.add_cmds(self.final_commands)
         cm.begin_installation()
     def install(self):
-        os.system("sudo sh commands.sh")
+        cm.install()

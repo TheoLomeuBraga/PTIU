@@ -13,6 +13,9 @@ class user:
         self.name = name
         self.password = password
         self.host_name = host_name
+    def __eq__(self,other):
+        return (self.name == other.name and self.password == other.password and self.host_name == other.host_name)
+
 
 def add_user_acount2(name,password,host_name):
     ret = []
