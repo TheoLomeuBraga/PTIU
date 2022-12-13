@@ -102,7 +102,7 @@ def get_devices():
             i += 1
             ret.append(p)
         else:
-            if func.compare_first_chars(2,p.name,"sd"): 
+            if compare_first_chars(2,p.name,"sd"): 
                 ret[i - 1].partitions.append(p)
 
     return ret
