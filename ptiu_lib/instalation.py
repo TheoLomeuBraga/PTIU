@@ -5,14 +5,14 @@ from enum import Enum
 import os
 
 #import ptiu_lib
-import ptiu_lib.partition_manager as pm
-import ptiu_lib.cmd_manager as cm
-import ptiu_lib.create_base_os as cbos
-import ptiu_lib.acount_manager as am
-import ptiu_lib.second_base_os as sbos
-import ptiu_lib.pakages as pk
-import ptiu_lib.final_configs as fc
-import ptiu_lib.repositorys as rp
+import partition_manager as pm
+import cmd_manager as cm
+import create_base_os as cbos
+import acount_manager as am
+import second_base_os as sbos
+import pakages as pk
+import final_configs as fc
+import repositorys as rp
 
 class instalaton_config:
     def __init__(self):

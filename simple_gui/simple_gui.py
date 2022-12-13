@@ -6,7 +6,7 @@ from enum import Enum
 from functions import *
 from tkinter import *
 from instalation import *
-
+import ptiu_lib.instalation as ins
 
 config = instalaton_config()
 
