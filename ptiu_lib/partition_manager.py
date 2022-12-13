@@ -59,7 +59,6 @@ class device_info:
 
 def get_list_all_partitions():
     comand_result = subprocess.check_output(['lsblk', '-l'])
-    comand_result = ""
     result_procesed_lines = comand_result.splitlines()
     result_procesed_lines.pop(0)
     
