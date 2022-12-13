@@ -13,7 +13,8 @@ class partition_info:
         self.mount_point = mount_point
     def __init__(self,partition_info_list):
         self.name = partition_info_list[0]
-        self.size = partition_info_list[3]
+        if len(partition_info_list) > 2 :
+            self.size = partition_info_list[3]
         if len(partition_info_list) > 6 :
             self.mount_point = partition_info_list[6]
         else:
@@ -58,6 +59,7 @@ class device_info:
 
 def get_list_all_partitions():
     comand_result = subprocess.check_output(['lsblk', '-l'])
+    comand_result = ""
     result_procesed_lines = comand_result.splitlines()
     result_procesed_lines.pop(0)
     
@@ -73,7 +75,7 @@ def get_list_all_partitions():
 
     return ret
     
-def get_devices():#em progreso
+def get_devices():
     ret = []
     partitions = get_list_all_partitions()
     partitions_devices = []
