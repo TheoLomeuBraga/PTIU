@@ -87,7 +87,7 @@ class select_partition_window:
             self.avaliable_device_list = get_avaliable_devices()
     def start(self,window):#https://www.pythontutorial.net/tkinter/tkinter-listbox/
         
-        window.title("warning")
+        window.title("select device")
         window.geometry("300x300")
         window.iconbitmap("@"+os.getcwd()+"/PTIU.xbm")
         window["background"]=background_color
@@ -141,7 +141,7 @@ class select_wm_window:
         self.avaliable_wm_list = ["xfce","mate","lxqt","cinnamon","kde"]
     def start(self,window):#https://www.pythontutorial.net/tkinter/tkinter-listbox/
         
-        window.title("warning")
+        window.title("window manager")
         window.geometry("300x300")
         window.iconbitmap("@"+os.getcwd()+"/PTIU.xbm")
         window["background"]=background_color
@@ -212,7 +212,7 @@ class select_kernel_window:
         self.avaliable_kernel_list = ["linux-image-generic",]
     def start(self,window):#https://www.pythontutorial.net/tkinter/tkinter-listbox/
         
-        window.title("warning")
+        window.title("kernel")
         window.geometry("300x300")
         window.iconbitmap("@"+os.getcwd()+"/PTIU.xbm")
         window["background"]=background_color
@@ -257,6 +257,70 @@ class select_kernel_window:
         conf.kernel =  self.avaliable_kernel_list[self.kernel_list.curselection()[0]]
         install_configs.append(conf)    
 window_list.append(select_kernel_window())
+
+
+
+class user_window:
+    def __init__(self):
+        print("")
+    def start(self,window):
+        window.title("register")
+        window.geometry("300x350")
+        window.iconbitmap("@"+os.getcwd()+"/PTIU.xbm")
+        window["background"]=background_color
+
+        #user
+        fm = Frame(window,relief="raised")
+        fm.place(x=10,y=10,width=280,height=275)
+        fm["background"]=background_color
+
+        text = Label(fm, text = "register:",background="light blue")
+        text.grid(column=0, row=0)
+
+        text_user_name = Label(fm, text = "user:\n",background="light blue")
+        text_user_name.grid(column=0, row=1)
+
+        self.input_user_name = Entry(fm, width=50)
+        self.input_user_name.grid(column=0, row=2)
+
+        text_password = Label(fm, text = "password:\n",background="light blue")
+        text_password.grid(column=0, row=3)
+
+        self.input_password = Entry(fm, width=50)
+        self.input_password.config(show="*")
+        self.input_password.grid(column=0, row=4)
+
+        text_host_name = Label(fm, text = "host name:\n",background="light blue")
+        text_host_name.grid(column=0, row=5)
+
+        self.input_host_name = Entry(fm, width=50)
+        self.input_host_name.grid(column=0, row=6)
+
+        #final
+        final_frame = Frame(window,borderwidth=0,relief="raised")
+        final_frame.place(x=50,y=300,width=200,height=50)
+        final_frame["background"]=background_color
+
+        next_button = Button(final_frame,text="next>>",command=next)
+        next_button["background"]=background_color
+        next_button.pack(side=RIGHT)
+
+        previous_button = Button(final_frame,text="<<previous",command=previous)
+        previous_button["background"]=background_color
+        previous_button.pack(side=LEFT)
+
+    def ok(self):
+        usr = user(self.input_user_name.get(),self.input_password.get(),self.input_host_name.get())
+        conf = ins.instalaton_config()
+        conf.user =  usr
+        install_configs.append(conf) 
+window_list.append(user_window())
+
+
+
+    
+    
+
 
 
 

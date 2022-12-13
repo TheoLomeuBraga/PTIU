@@ -22,22 +22,23 @@ sudo apt-get install arch-install-scripts
 
 
 #get layouts
-rm layouts/base.txt
-touch layouts/base.txt
-localectl list-x11-keymap-layouts >> layouts/base.txt
+#rm layouts/base.txt
+#touch layouts/base.txt
+#localectl list-x11-keymap-layouts >> layouts/base.txt
 
-rm -r layouts/variants
-mkdir layouts/variants
+#rm -r layouts/variants
+#mkdir layouts/variants
 
-while IFS= read -r line; do
-    touch layouts/variants/${line}.txt
-    localectl list-x11-keymap-variants ${line} >> layouts/variants/${line}.txt
-done < layouts/base.txt
+#while IFS= read -r line; do
+#    touch layouts/variants/${line}.txt
+#    localectl list-x11-keymap-variants ${line} >> layouts/variants/${line}.txt
+#done < layouts/base.txt
 
 #get locales
-rm locales/locales.txt
-touch locales/locales.txt
-cat /usr/share/i18n/SUPPORTED >> locales/locales.txt
+
+#rm locales/locales.txt
+#touch locales/locales.txt
+#cat /usr/share/i18n/SUPPORTED >> locales/locales.txt
 
 
 
