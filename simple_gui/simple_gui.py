@@ -50,6 +50,8 @@ class welcome_window:
         window.iconbitmap("@"+os.getcwd()+"/PTIU.xbm")
         window["background"]=background_color
 
+        
+
         fm = Frame(window)
         fm["background"]=background_color
         text = Label(fm, text = "welcome.\n lets mount a ubuntu based distro",background="light blue")
@@ -61,14 +63,17 @@ class welcome_window:
 
         fm.pack(fill=BOTH, expand=YES)
     def ok(self):
-        print("")
+        conf = ins.instalaton_config()
+        install_configs.append(conf)
 window_list.append(welcome_window())
 
 
 class select_partition_window():
     def __init__(self):
         print("")
+        #self.avaliable_device_list = get_avaliable_devices()
     def start(self,window):
+        
         window.title("warning")
         window.geometry("300x300")
         window.iconbitmap("@"+os.getcwd()+"/PTIU.xbm")
@@ -84,19 +89,23 @@ class select_partition_window():
 
         #partition frame
         partition_frame = Frame(window,borderwidth=0,relief="raised")
-        partition_frame.place(x=50,y=75,width=200,height=100)
+        partition_frame.place(x=50,y=75,width=200,height=200)
         partition_frame["background"]=background_color
     
         gparted_button = Button(partition_frame,text="gparted",command=open_gparted)
         gparted_button["background"]=background_color
         gparted_button.pack(side=TOP)
 
-        instructions = Label(partition_frame, text = "ex: sda, sdb, sdc",background="light blue")
-        instructions.pack(side=TOP)
+        #instructions = Label(partition_frame, text = "ex: sda, sdb, sdc",background="light blue")
+        #instructions.pack(side=TOP)
 
-        self.inputtxt = Text(partition_frame,height = 5,width = 20)
-        self.inputtxt.pack(side=TOP)
+        #self.inputtxt = Text(partition_frame,height = 5,width = 20)
+        #self.inputtxt.pack(side=TOP)
 
+        
+
+        self.device_list = Listbox(partition_frame,height = 20,width = 10)
+        self.device_list.pack(side=TOP)
 
 
         #final
@@ -114,7 +123,10 @@ class select_partition_window():
 
         fm.pack(fill=BOTH, expand=YES)
     def ok(self):
-        print("selected device is: " + self.inputtxt.get(1.0, "end-1c"))
+        conf = ins.instalaton_config()
+        #conf.deviceice = self.inputtxt.get(1.0, "end-1c")
+        install_configs.append(conf)
+        
 window_list.append(select_partition_window())
 
 

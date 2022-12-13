@@ -18,3 +18,11 @@ def install(install_configs):
         install_config += c
     install_config.make_command()
     install_config.install()
+
+def get_avaliable_devices():
+    ret = []
+    parts = pm.get_devices()
+    for p in parts:
+        if len(p.partitions) == 0:
+            ret.append(p.name)
+    return ret
