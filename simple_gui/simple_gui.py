@@ -355,6 +355,7 @@ class terminal_warning_window:
         fm.pack(fill=BOTH, expand=YES)
     def ok(self):
         conf = ins.instalaton_config()
+        conf.pakages.append("network-manager")
         install_configs.append(conf) 
         conf_final = fuse_install_configs(install_configs)
         conf_final.print_info()
