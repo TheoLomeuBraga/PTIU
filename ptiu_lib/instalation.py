@@ -68,7 +68,7 @@ class instalaton_config:
 
         rp.add_repositorys(self.repositorys)
         pk.add_pakages(self.pakages)
-        pk.add_pakages(self.kernel)
+        pk.add_pakage(self.kernel)
         cm.add_cmds(pm.create_mount_partitions(self.deviceice,0,1024))
         cm.add_cmds(cbos.all())
         cm.add_cmds(am.add_user_acount(self.user))
