@@ -71,8 +71,9 @@ window_list.append(welcome_window())
 class select_partition_window():
     def __init__(self):
         print("")
+        self.avaliable_device_list = ["sda","sdb","sdc","sda","sdb","sdc","sda","sdb","sdc","sda","sdb","sdc"]
         #self.avaliable_device_list = get_avaliable_devices()
-    def start(self,window):
+    def start(self,window):#https://www.pythontutorial.net/tkinter/tkinter-listbox/
         
         window.title("warning")
         window.geometry("300x300")
@@ -89,22 +90,16 @@ class select_partition_window():
 
         #partition frame
         partition_frame = Frame(window,borderwidth=0,relief="raised")
-        partition_frame.place(x=50,y=75,width=200,height=200)
+        partition_frame.place(x=50,y=100,width=200,height=200)
         partition_frame["background"]=background_color
     
         gparted_button = Button(partition_frame,text="gparted",command=open_gparted)
         gparted_button["background"]=background_color
         gparted_button.pack(side=TOP)
 
-        #instructions = Label(partition_frame, text = "ex: sda, sdb, sdc",background="light blue")
-        #instructions.pack(side=TOP)
-
-        #self.inputtxt = Text(partition_frame,height = 5,width = 20)
-        #self.inputtxt.pack(side=TOP)
-
         
-
-        self.device_list = Listbox(partition_frame,height = 20,width = 10)
+        list_items = Variable(value=self.avaliable_device_list)
+        self.device_list = Listbox(partition_frame,height = 6,width = 10,listvariable=list_items)
         self.device_list.pack(side=TOP)
 
 
@@ -124,7 +119,8 @@ class select_partition_window():
         fm.pack(fill=BOTH, expand=YES)
     def ok(self):
         conf = ins.instalaton_config()
-        #conf.deviceice = self.inputtxt.get(1.0, "end-1c")
+        conf.deviceice = self.avaliable_device_list[self.device_list.curselection()[0]]
+        print(self.avaliable_device_list[self.device_list.curselection()[0]])
         install_configs.append(conf)
         
 window_list.append(select_partition_window())
