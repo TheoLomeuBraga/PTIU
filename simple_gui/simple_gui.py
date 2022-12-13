@@ -1,14 +1,17 @@
 #!/bin/python3
-import sys
+
 import os
 from enum import Enum
 
 from functions import *
 from tkinter import *
-from instalation import *
-import ptiu_lib.instalation as ins
 
-config = instalaton_config()
+import sys
+sys.path.append('../ptiu_lib')
+import ptiu_lib.instalation as ins
+import ptiu_lib.partition_manager as pm
+
+install_configs = []
 
 window_id=0
 window_list = []

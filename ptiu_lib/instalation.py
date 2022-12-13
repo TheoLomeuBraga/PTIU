@@ -1,7 +1,3 @@
-import sys
-sys.path.append('../ptiu_lib')
-from enum import Enum
-
 import os
 
 #import ptiu_lib
