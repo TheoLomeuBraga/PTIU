@@ -23,8 +23,8 @@ def fuse_install_configs(install_configs):
 
 def get_avaliable_devices():
     ret = []
-    parts = pm.get_devices()
-    for p in parts:
+    devs = pm.get_devices()
+    for p in devs:
         if len(p.partitions) == 0:
             ret.append(p.name)
     return ret
