@@ -73,13 +73,25 @@ def get_list_all_partitions():
         ret.append(partition_info(l.split()))
 
     return ret
-    
+
+def compare_first_chars(n,s1,s2):
+    ret=True
+    if len(s1) < n or len(s2) < n:
+        ret=False
+    else:
+        i=0
+        while i < n:
+            ret = s1[i] == s2[i]
+            i+=1
+
+    return ret
+
 def get_devices():
     ret = []
     partitions = get_list_all_partitions()
     partitions_devices = []
     for p in partitions:
-        if len(p.name) == 3 and func.compare_first_chars(2,"sd",p.name):
+        if len(p.name) == 3 and compare_first_chars(2,"sd",p.name):
             partitions_devices.append(device_info(p.name,p.size,[]))
         else:
             partitions_devices.append(p)

@@ -3,7 +3,7 @@
 import os
 from enum import Enum
 
-from functions import *
+from gui_functions import *
 from tkinter import *
 
 import sys

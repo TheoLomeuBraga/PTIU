@@ -1,4 +1,4 @@
-import re
+
 
 
 def separate_file_in_lines(file):
@@ -11,17 +11,7 @@ def separate_file_in_lines(file):
         ret.append("{1}".format(count, line.strip()))
     return ret
 
-def compare_first_chars(n,s1,s2):
-    ret=True
-    if len(s1) < n or len(s2) < n:
-        ret=False
-    else:
-        i=0
-        while i < n:
-            ret = s1[i] == s2[i]
-            i+=1
 
-    return ret
 
 def separate_numbers_text(text):
     return [int(''.join(filter(str.isdigit, text)) or None), ''.join(filter(str.isalpha, text)) or None]
