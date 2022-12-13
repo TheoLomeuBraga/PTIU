@@ -113,7 +113,7 @@ def get_devices():
 #https://linuxhint.com/linux-parted-command-line-examples/
 def create_mount_partitions(dev,home_size_mb,swap_size_mb):
     ret = []
-    ret.append("sudo ./create_partition.sh " + dev + " " + str(home_size_mb)  + " " + str(swap_size_mb))
+    ret.append("sudo sh create_partition.sh " + dev + " " + str(home_size_mb)  + " " + str(swap_size_mb))
     return ret
 
 
