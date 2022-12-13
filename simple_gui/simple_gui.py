@@ -18,6 +18,8 @@ window_list = []
 
 window = Tk()
 
+is_a_test = True
+
 def next():
     global window_id,window
     window_list[window_id].ok()
@@ -72,7 +74,8 @@ class select_partition_window():
     def __init__(self):
         print("")
         self.avaliable_device_list = ["sda","sdb","sdc","sde","sdf"]
-        #self.avaliable_device_list = get_avaliable_devices()
+        if is_a_test == False:
+            self.avaliable_device_list = get_avaliable_devices()
         self.avaliable_device_list += ["","",""]
     def start(self,window):#https://www.pythontutorial.net/tkinter/tkinter-listbox/
         
