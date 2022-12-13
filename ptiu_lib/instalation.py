@@ -20,11 +20,17 @@ class instalaton_config:
         self.final_commands = []
 
     def print_info(self):
-        print(self.deviceice)
-        print(self.kernel)
-        print("user: "+self.user)
+        print("devices: "+self.deviceice)
+        print("kernel: "+self.kernel)
+        print("user: "+self.user.name)
+
+        print("repositorys: ")
         print(self.repositorys)
+
+        print("pakages: ")
         print(self.pakages)
+
+        print("final_commands: ")
         print(self.final_commands)
 
     def __add__(self, other):
@@ -62,7 +68,7 @@ class instalaton_config:
 
         rp.add_repositorys(self.repositorys)
         pk.add_pakages(self.pakages)
-        cm.add_cmds(pk.create_mount_partitions(self.deviceice,0,1024))
+        cm.add_cmds(pm.create_mount_partitions(self.deviceice,0,1024))
         cm.add_cmds(cbos.all())
         cm.add_cmds(am.add_user_acount(self.user))
         cm.add_cmds(sbos.all(self.deviceice))

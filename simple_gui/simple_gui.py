@@ -85,7 +85,6 @@ class select_partition_window:
         self.avaliable_device_list = ["sda","sdb","sdc","sde","sdf"]
         if is_a_test == False:
             self.avaliable_device_list = get_avaliable_devices()
-        self.avaliable_device_list += ["","",""]
     def start(self,window):#https://www.pythontutorial.net/tkinter/tkinter-listbox/
         
         window.title("warning")
@@ -139,8 +138,7 @@ window_list.append(select_partition_window())
 class select_wm_window:
     def __init__(self):
         print("")
-        self.avaliable_wm_list = ["xfce","mate","lxqt","kde"]
-        self.avaliable_wm_list += ["","","","","","",""]
+        self.avaliable_wm_list = ["xfce","mate","lxqt","cinnamon","kde"]
     def start(self,window):#https://www.pythontutorial.net/tkinter/tkinter-listbox/
         
         window.title("warning")
@@ -153,7 +151,7 @@ class select_wm_window:
         fm.place(x=10,y=10,width=50,height=50)
         fm["background"]=background_color
 
-        text = Label(fm, text = "to proceed with the installation you must:\n select a device without partitions",background="light blue")
+        text = Label(fm, text = "select your window manager",background="light blue")
         text.pack(side=TOP)
 
         #partition frame
@@ -185,10 +183,25 @@ class select_wm_window:
         fm.pack(fill=BOTH, expand=YES)
     def ok(self):
         conf = ins.instalaton_config()
-        # "xfce" "mate" "lxqt" "kde"
-        selected_wm = self.wm_list.curselection()[0]
-        
-        
+        # "xfce" "mate" "lxqt" "cinnamon" "kde"
+        selected_wm = self.avaliable_wm_list[self.wm_list.curselection()[0]]
+        print(selected_wm + " was selected")
+        if selected_wm == "xfce":
+            conf.pakages += ["lightdm","xfce4","xorg"]
+
+        elif selected_wm == "mate":
+            conf.pakages += ["lightdm","mate","xorg"]
+
+        elif selected_wm == "lxqt":
+            conf.pakages += ["sddm","lxqt","xorg"]
+
+        elif selected_wm == "cinnamon":
+            conf.repositorys.append("universe")
+            conf.pakages += ["lightdm","cinnamon-desktop-environment","xorg"]
+
+        elif selected_wm == "kde":
+            conf.pakages += ["sddm","kde-full","xorg"]
+            
         install_configs.append(conf)    
 window_list.append(select_wm_window())
 
@@ -225,7 +238,13 @@ class terminal_warning_window:
 
         fm.pack(fill=BOTH, expand=YES)
     def ok(self):
-        print("")
+        conf = ins.instalaton_config()
+        install_configs.append(conf) 
+        conf_final = fuse_install_configs(install_configs)
+        conf_final.print_info()
+        if is_a_test == False:
+            conf_final.make_command()
+            conf_final.install()
 window_list.append(terminal_warning_window())
 
 

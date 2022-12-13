@@ -12,12 +12,12 @@ def open_gparted():
     os.system("sudo gparted")
 
 
-def install(install_configs):
-    install_config = ins.instalaton_config()
+def fuse_install_configs(install_configs):
+    ret = ins.instalaton_config()
     for c in install_configs:
-        install_config += c
-    install_config.make_command()
-    install_config.install()
+        ret = ret + c
+    return ret
+    #install_config.install()
 
 def get_avaliable_devices():
     ret = []
