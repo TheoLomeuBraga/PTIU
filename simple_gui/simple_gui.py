@@ -2,14 +2,13 @@
 import sys
 import os
 from enum import Enum
-sys.path.append('../')
-from ptiu_lib import *
+
 from functions import *
 from tkinter import *
+from instalation import *
 
 
-
-
+config = instalaton_config()
 
 window_id=0
 window_list = []

@@ -1,6 +1,10 @@
 import repositorys as rp
 
 class user:
+    def __init__(self):
+        self.name = ""
+        self.password = ""
+        self.host_name = ""
     def __init__(self,name,password):
         self.name = name
         self.password = password
