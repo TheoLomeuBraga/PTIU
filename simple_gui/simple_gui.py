@@ -206,6 +206,58 @@ class select_wm_window:
 window_list.append(select_wm_window())
 
 
+class select_kernel_window:
+    def __init__(self):
+        print("")
+        self.avaliable_kernel_list = ["linux-image-generic",]
+    def start(self,window):#https://www.pythontutorial.net/tkinter/tkinter-listbox/
+        
+        window.title("warning")
+        window.geometry("300x300")
+        window.iconbitmap("@"+os.getcwd()+"/PTIU.xbm")
+        window["background"]=background_color
+
+        #warning
+        fm = Frame(window,borderwidth=1,relief="raised")
+        fm.place(x=10,y=10,width=50,height=50)
+        fm["background"]=background_color
+
+        text = Label(fm, text = "select your kernel",background="light blue")
+        text.pack(side=TOP)
+
+        #partition frame
+        partition_frame = Frame(window,borderwidth=0,relief="raised")
+        partition_frame.place(x=50,y=75,width=200,height=200)
+        partition_frame["background"]=background_color
+    
+        
+
+        
+        list_items = Variable(value=self.avaliable_kernel_list)
+        self.kernel_list = Listbox(partition_frame,height = 10,width = 20,listvariable=list_items)
+        self.kernel_list.pack(side=TOP)
+
+
+        #final
+        final_frame = Frame(window,borderwidth=0,relief="raised")
+        final_frame.place(x=50,y=250,width=200,height=50)
+        final_frame["background"]=background_color
+
+        next_button = Button(final_frame,text="next>>",command=next)
+        next_button["background"]=background_color
+        next_button.pack(side=RIGHT)
+
+        previous_button = Button(final_frame,text="<<previous",command=previous)
+        previous_button["background"]=background_color
+        previous_button.pack(side=LEFT)
+
+        fm.pack(fill=BOTH, expand=YES)
+    def ok(self):
+        conf = ins.instalaton_config()
+        conf.kernel =  self.avaliable_kernel_list[self.kernel_list.curselection()[0]]
+        install_configs.append(conf)    
+window_list.append(select_kernel_window())
+
 
 
 class terminal_warning_window:
