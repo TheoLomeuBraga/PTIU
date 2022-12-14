@@ -23,4 +23,4 @@ def begin_installation():
     f.close()
 
 def install():
-    os.system('echo "install"  | sudo sh command.sh')
+    os.system('sudo sh command.sh')
