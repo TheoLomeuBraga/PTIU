@@ -1,7 +1,9 @@
 
 def final_configs(root_name):
     ret = [
-        "dpkg-reconfigure locales ",
+        "dpkg-reconfigure locales",
+        "dpkg-reconfigure keyboard-configuration",
+        "service keyboard-setup restart",
         "apt -y upgrade",
         #configure console
         "chsh -s /bin/bash",
