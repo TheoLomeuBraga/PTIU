@@ -7,27 +7,20 @@ import second_base_os as sbos
 import pakages as pk
 import final_configs as fc
 import repositorys as rp
+import instalation as ins
 import os
 
-user = am.user("user","password","AAAAA")
+ins_config = ins.instalaton_config()
 
-if os.path.isfile("commands.sh"):
-        os.remove("commands.sh")
+ins_config.user = am.user("user","password","8080")
 
-pk.add_pakages(["network-manager","xfce4","firefox","xorg","lightdm",])
+ins_config.kernel = "linux-image-generic"
 
-dev = "sdb"
-cm.add_cmds(pmanager.create_mount_partitions(dev,0,1024))
-cm.add_cmds(cbos.all())
-cm.add_cmds(am.add_user_acount(user))
-cm.add_cmds(sbos.all(dev))
+ins_config.deviceice = "sdb"
 
+ins_config.repositorys = ["universe","ppa:kisak/kisak-mesa"]
 
-#cm.add_cmd("dpkg-reconfigure lightdm")
+ins_config.pakages = ["network-manager","firefox","xorg","lightdm","xfce4","xfce4-indicator-plugin","xfce4-battery-plugin"]
 
-
-
-cm.add_cmds(fc.final_configs(user.name))
-
-
-cm.begin_installation()
+ins_config.make_command()
+ins_config.install()
