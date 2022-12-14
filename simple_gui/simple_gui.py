@@ -187,13 +187,13 @@ class select_wm_window:
         selected_wm = self.avaliable_wm_list[self.wm_list.curselection()[0]]
         print(selected_wm + " was selected")
         if selected_wm == "xfce":
-            conf.pakages += ["lightdm","xfce4","xorg"]
+            conf.pakages += ["lightdm","xfce4","xorg","xfce4-indicator-plugin","xfce4-battery-plugin"]
 
         elif selected_wm == "mate":
             conf.pakages += ["lightdm","mate","xorg"]
 
         elif selected_wm == "lxqt":
-            conf.pakages += ["sddm","lxqt","xorg"]
+            conf.pakages += ["sddm","lxqt","xorg","lxqt-powermanagement"]
 
         elif selected_wm == "cinnamon":
             conf.repositorys.append("universe")
@@ -355,7 +355,11 @@ class terminal_warning_window:
         fm.pack(fill=BOTH, expand=YES)
     def ok(self):
         conf = ins.instalaton_config()
-        conf.pakages.append("network-manager")
+        conf.pakages += [
+            "network-manager",
+            "indicator-power",
+            "laptop-detect",
+            ]
         install_configs.append(conf) 
         conf_final = fuse_install_configs(install_configs)
         conf_final.print_info()
@@ -368,7 +372,27 @@ window_list.append(terminal_warning_window())
 
 
 
+class end_window:
+    def __init__(self):
+        print("")
+    def start(self,window):
+        window.title("welcome")
+        window.geometry("300x100")
+        window.iconbitmap("@"+os.getcwd()+"/PTIU.xbm")
+        window["background"]=background_color
 
+        
+
+        fm = Frame(window)
+        fm["background"]=background_color
+        text = Label(fm, text = "conglaturations its over",background="light blue")
+        text.pack(side=TOP)
+
+        fm.pack(fill=BOTH, expand=YES)
+    def ok(self):
+        conf = ins.instalaton_config()
+        install_configs.append(conf)
+window_list.append(end_window())
 
 
 
