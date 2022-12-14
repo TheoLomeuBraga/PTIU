@@ -359,6 +359,7 @@ class terminal_warning_window:
             "network-manager",
             "indicator-power",
             "laptop-detect",
+            "firefox",
             ]
         install_configs.append(conf) 
         conf_final = fuse_install_configs(install_configs)
