@@ -75,6 +75,7 @@ class instalaton_config:
         cm.add_cmds(sbos.all(self.deviceice))
         cm.add_cmds(self.final_commands)
         cm.add_cmds(fc.final_configs(self.user.name))
+        cm.add_cmds(["exit","EOF"])
         cm.begin_installation()
     def install(self):
         cm.install()
