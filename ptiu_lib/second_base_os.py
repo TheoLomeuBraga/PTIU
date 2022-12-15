@@ -34,6 +34,7 @@ def install_boot_loader(dev):
 def install_base_pakages():
     ret = []
     ret.append("apt-get update")
+    ret.append("apt dist-upgrade")
     for pak in pk.base_pakages:
         ret.append("apt -y install "+pak)
     #ret.append("apt upgrade")
