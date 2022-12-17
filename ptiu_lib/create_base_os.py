@@ -47,7 +47,10 @@ def mount_file_system():
     ret.append("sudo mount --bind /dev /mnt/dev")
     ret.append("sudo mount -t proc none /mnt/proc")
     ret.append("sudo mount -t sysfs sys /mnt/sys")
-    ret.append("sudo chroot /mnt << EOF")
+    ret.append("sudo mount -t sysfs sys /mnt/sys")
+    #ret.append("sudo chroot /mnt << EOF")
+    ret.append("sudo mv command_cr.sh /mnt")
+    ret.append("sudo chroot /mnt sh command_cr.sh")
     return ret
 
 
