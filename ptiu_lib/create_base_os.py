@@ -42,13 +42,12 @@ def edit():
     ret.append("genfstab /mnt > /mnt/etc/fstab")
     return ret
 
-def mount_file_system_and_chroot():
+def mount_file_system():
     ret = []
     ret.append("sudo mount --bind /dev /mnt/dev")
     ret.append("sudo mount -t proc none /mnt/proc")
     ret.append("sudo mount -t sysfs sys /mnt/sys")
     ret.append("sudo chroot /mnt << EOF")
-    #ret.append("apt-get -y update")
     return ret
 
 
@@ -56,5 +55,5 @@ def mount_file_system_and_chroot():
 
 
 def all():
-    ret = create_base_os() + edit() + mount_file_system_and_chroot()
+    ret = create_base_os() + edit() + mount_file_system()
     return ret

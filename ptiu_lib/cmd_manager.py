@@ -40,3 +40,4 @@ def begin_installation():
 
 def install():
     os.system('sudo sh command.sh')
+    #chroot /mnt/gentoo myscript.sh
