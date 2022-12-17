@@ -29,7 +29,7 @@ def begin_installation():
         f.write(c+"\n")
     f.close()
 
-    global cmds
+    global cmds_cr
     if os.path.isfile("command_cr.sh"):
         os.remove("command_cr.sh")
      
