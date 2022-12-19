@@ -22,5 +22,9 @@ ins_config.repositorys = ["universe","ppa:kisak/kisak-mesa"]
 
 ins_config.pakages = ["network-manager","firefox","xorg","lightdm","xfce4","xfce4-indicator-plugin","xfce4-battery-plugin"]
 
+#openbox tools
+ins_config.pakages = ["nitrogen","openbox","plank","rofi","tint2","gnome-terminal"]
+ins_config.pakages = ["xcompmgr","network-manager","plank","pnmixer","blueman"]
+
 ins_config.make_command()
 ins_config.install()
