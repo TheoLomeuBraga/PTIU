@@ -8,6 +8,8 @@ from tkinter import *
 
 import sys
 sys.path.append('../ptiu_lib')
+for p in sys.path:
+    print(p)
 import ptiu_lib.instalation as ins
 import ptiu_lib.partition_manager as pm
 

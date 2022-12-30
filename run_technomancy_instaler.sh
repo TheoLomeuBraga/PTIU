@@ -1,3 +1,2 @@
 cd technomancy
-python3 instaler.py
-cd -
+python3 installer.py
