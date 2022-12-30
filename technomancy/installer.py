@@ -51,8 +51,41 @@ def start():
     window_list[0].start(window)
     window.mainloop()
 
+text_color="white"
+background_color="dark blue"
 
-background_color="light blue"
+def config_text_color(lable):
+    lable.config(fg=text_color)
+    lable.config(bg="yellow")
+    lable.config(background=background_color)
+
+class welcome_window:
+    def __init__(self):
+        print("")
+    def start(self,window):
+        window.title("welcome")
+        window.geometry("300x100")
+        window.iconbitmap("@"+os.getcwd()+"/PTIU.xbm")
+        window["background"]=background_color
+
+        
+
+        fm = Frame(window)
+        fm["background"]=background_color
+        text = Label(fm, text = "welcome.\n lets install technomancy",background=background_color)
+        config_text_color(text)
+        text.pack(side=TOP)
+
+        next_button = Button(fm,text="next>>",command=next)
+        config_text_color(next_button)
+        next_button.pack(side=BOTTOM)
+
+        fm.pack(fill=BOTH, expand=YES)
+    def ok(self):
+        conf = ins.instalaton_config()
+        install_configs.append(conf)
+window_list.append(welcome_window())
+
 
 
 

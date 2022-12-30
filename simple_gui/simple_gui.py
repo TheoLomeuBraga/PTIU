@@ -388,7 +388,7 @@ class end_window:
 
         fm = Frame(window)
         fm["background"]=background_color
-        text = Label(fm, text = "conglaturations its over",background="light blue")
+        text = Label(fm, text = "conglaturations its over",background=background_color)
         text.pack(side=TOP)
 
         fm.pack(fill=BOTH, expand=YES)

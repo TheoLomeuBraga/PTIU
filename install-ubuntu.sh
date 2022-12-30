@@ -1,0 +1,1 @@
+sudo sh install_dependences.sh
