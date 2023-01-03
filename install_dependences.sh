@@ -19,6 +19,7 @@ sudo apt -y install software-properties-common gparted
 sudo apt-get -y install ubuntu-archive-keyring
 sudo apt -y install debootstrap schroot arch-install-scripts
 sudo apt-get -y install arch-install-scripts
+sudo apt -y install
 
 
 #get layouts
