@@ -45,6 +45,12 @@ def previous():
     window_list[window_id].start(window)
     install_configs.pop()
 
+def reload():
+    global window_id,window
+    window.destroy()
+    window = Tk()
+    window_list[window_id].start(window)
+    install_configs.pop()
 
 
 def start():
@@ -53,11 +59,21 @@ def start():
 
 text_color="white"
 background_color="dark blue"
+button_color="light blue"
+
+def config_frame_color(fm):
+    fm["background"]=background_color
+
 
 def config_text_color(lable):
     lable.config(fg=text_color)
-    lable.config(bg="yellow")
+    #lable.config(bg="yellow")
     lable.config(background=background_color)
+
+def config_button_color(lable):
+    lable.config(fg=background_color)
+    
+    lable.config(background=button_color)
 
 class welcome_window:
     def __init__(self):
@@ -71,7 +87,34 @@ class welcome_window:
         
 
         fm = Frame(window)
-        fm["background"]=background_color
+        config_frame_color(fm)
+        text = Label(fm, text = "welcome.\n lets install technomancy",background=background_color)
+        config_text_color(text)
+        text.pack(side=TOP)
+
+        next_button = Button(fm,text="next>>",command=next,borderwidth=0)
+        config_button_color(next_button)
+        next_button.pack(side=BOTTOM)
+
+        fm.pack(fill=BOTH, expand=YES)
+    def ok(self):
+        conf = ins.instalaton_config()
+        install_configs.append(conf)
+window_list.append(welcome_window())
+
+class device_selection_window:
+    def __init__(self):
+        print("")
+    def start(self,window):
+        window.title("device selection window")
+        window.geometry("300x100")
+        window.iconbitmap("@"+os.getcwd()+"/PTIU.xbm")
+        window["background"]=background_color
+
+        
+
+        fm = Frame(window)
+        config_frame_color(fm)
         text = Label(fm, text = "welcome.\n lets install technomancy",background=background_color)
         config_text_color(text)
         text.pack(side=TOP)
@@ -84,7 +127,7 @@ class welcome_window:
     def ok(self):
         conf = ins.instalaton_config()
         install_configs.append(conf)
-window_list.append(welcome_window())
+window_list.append(device_selection_window())
 
 
 
